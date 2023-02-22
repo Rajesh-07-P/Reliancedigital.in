@@ -1,0 +1,174 @@
+.header {
+  height: 90px;
+  width: 100%;
+  background-color: #e42529;
+  font-weight: 600;
+}
+
+.headerlink {
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 4px 16px;
+}
+
+.headerlinktext {
+  border-right: 1px solid #dadada;
+  padding: 0px 8px;
+  font-size: 13px;
+}
+
+.headerlinktext:nth-child(3) {
+  border-right: 0px;
+}
+
+.headermain {
+  display: flex;
+  padding: 16px 0px 0px 48px;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 240px;
+  margin-top: -5px;
+}
+
+.searchinputdiv {
+  width: 500px;
+  border-radius: 20px;
+  height: 35px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #a29fa0;
+  font-size: 20px;
+}
+
+.searchinput {
+  width: 400px;
+  margin-left: 20px;
+  outline: 0px;
+  font-size: 16px;
+  color: black;
+}
+
+.headermainlink {
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: normal;
+  list-style: none;
+  padding: 4px 8px;
+  font-size: 18px;
+}
+
+.headermainlinktext {
+  border-right: 1px solid #dadada;
+  padding: 0px 8px 0px 5px;
+  height: 20px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.headermainlinktext:last-child {
+  border-right: 0px;
+}
+
+.navcontainer {
+}
+
+.navlist {
+  background: #003380;
+  color: #fff;
+  padding: 0 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navlistitem {
+  list-style: none;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navlistitem:hover {
+  background-color: #e42529;
+}
+
+.dropdowncontainer1 {
+  display: none;
+  width: 96%;
+  height: auto;
+  padding: 0 2%;
+  margin: auto;
+  margin-top: 10px;
+  left: 2%;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-image: url("https://www.reliancedigital.in/medias/Mobiles-Tablet-Menu-Banners-04-01-2021-01.jpg?context=bWFzdGVyfGltYWdlc3wxMTkxOTN8aW1hZ2UvanBlZ3xpbWFnZXMvaGM0L2gxNy85NTIwNDc1MzczNTk4LmpwZ3xjMmU0NzlmMWZjODQyMmFmNDZhMjA2NTUwZTVhNTI4ODcxMWVkZjM5YzgyNDY3YTE3ODU1OWM0NGQyY2E4MmVi");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  cursor: auto;
+  z-index: 1;
+}
+
+.container2 {
+  background-image: url("https://www.reliancedigital.in/medias/Computers-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMzI5NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDQzL2g1Ny85NDU1NTQ0Nzk1MTY2LmpwZ3w3YThhZWU1NGYwZjY4ODA2Yjg1N2MyNzk4MTNlN2RkNGUxMjE1NjI5ZGQyMzAzOTk2NTMxZGIxOWMzOGM1NTJl");
+}
+
+.navlistitem:hover .dropdowncontainer1 {
+  display: block;
+}
+
+.dropdowncontainer {
+  display: none;
+  width: 96%;
+  height: auto;
+  padding: 0 2%;
+  margin: auto;
+  margin-top: 10px;
+  left: 2%;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-image: url("https://www.reliancedigital.in/medias/Televisions-Menu-Banners-11-03-22.jpg?context=bWFzdGVyfGltYWdlc3w2NDYzfGltYWdlL2pwZWd8aW1hZ2VzL2hkYi9oMTAvOTg1NDIzNjM5MzUwMi5qcGd8NjA2MDk4YzA4NWNkNzg5MWRjMGJlMTA4YjhmODg0YTY3MTY4NDE1OWYwMTA3ODIyY2YyYzY4MDAwMTc1ZDYwMQ");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  cursor: auto;
+  z-index: 1;
+}
+.navlistitem:hover .dropdowncontainer {
+  display: block;
+}
+
+.dropdownlists {
+  display: flex;
+}
+
+.dropdownlists ul {
+  list-style: none;
+  font-weight: 100;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.dropdownlists ul > li {
+  padding: 0px 16px 8px;
+}
+
+.dropdownlists ul > li:first-child {
+  font-weight: 600;
+  padding: 6px 16px;
+}
