@@ -1,0 +1,70 @@
+.logo {
+    width: 20vw;
+    margin-bottom: 30px;
+}
+
+.head {
+    color: #E42529;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.form {
+    width: 25vw;
+    margin: auto;
+    padding: 15px;
+    line-height: 33px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    background-color: white;
+    color: #003380;
+    font-weight: 500;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+p {
+    text-align: center;
+}
+
+/* media query for tablet */
+@media screen and (min-width:450px) and (max-width:1023.5px) {
+    .logo {
+        width: 35vw;
+    }
+
+    .head {
+        font-size: 35px;
+    }
+
+    .form {
+        width: 50vw;
+        line-height: 30px;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+/* media query for mobile */
+@media screen and (min-width:320px) and (max-width:449.9px) {
+    .logo {
+        width: 40vw;
+    }
+
+    .head {
+        font-size: 30px;
+    }
+
+    .form {
+        width: 65vw;
+        line-height: 33px;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
