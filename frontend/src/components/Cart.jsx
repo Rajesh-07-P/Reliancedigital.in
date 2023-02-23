@@ -89,7 +89,7 @@ const Cart = () => {
       <div className="cart">
         <div className="cart-item-left">
           <div style={{ border:"1px solid grey" }}>
-            <h4>My Cart:  <span style={{fontSize:"15px"}}> ({cart.length} items)</span></h4>
+            <p style={{fontWeight:"bold"}}>My Cart:  <span style={{fontSize:"15px"}}> ({cart.length} items)</span></p>
           </div>
           <div className="map-item">
             {cart ? (
