@@ -153,16 +153,16 @@ const Cart = () => {
           <div>
             <button className="btn-checkout">CHECKOUT</button>
           </div>
-          <div style={{ display: "flex", marginTop: "5px" ,marginBottom:"5px",}}>
-            <input type="text" />
-            <button>APPLY</button>
+          <div style={{ display: "flex", margin: "5px",border:"1px solid grey" }}>
+            <input  type="text" />
+            <button style={{borderLeft:"1px solid blue"}}>APPLY</button>
           </div>
           <div className="bottom" style={{ marginTop: "10px" ,paddingLeft:"10px",paddingRight:"5px"  }}>
             {/* {
                 totalPrice
             } */}
 
-            <div><h4>PRICE DETAILS</h4></div>
+            <div ><p style={{fontWeight:"bold"}}>PRICE DETAILS</p></div>
             <div style={{display:"flex",justifyContent:"space-between",borderTop:"1px solid black"}}>
 
               <p>Price ({cart.length} Items)</p>
