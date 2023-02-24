@@ -1,0 +1,18 @@
+.container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height:180px;
+    width: 180px; */
+}
+.container div>img{
+    /* height: 180px; */
+}
+
+.container div+p{
+    color: #003380;
+    height:50px;
+    overflow: hidden;
+    margin-right: 20px;
+    font-weight: 500;
+}

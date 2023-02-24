@@ -2,17 +2,17 @@ import React from "react";
 import Slider from "react-slick";
 import "./slick.css";
 import "./slick-theme.css";
-import images from "./data.js";
+import styles from "./products.module.css";
+import products from "./data.js";
 
 export default function BoatCarousel() {
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     initialSlide: 0,
-    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -42,11 +42,25 @@ export default function BoatCarousel() {
   };
   return (
     <>
-      <Slider {...settings}>
-        {images.map((image, i) => (
-          <img src={image} key={i} />
-        ))}
-      </Slider>
+      <div style={{width:"1200px",margin:"auto"}}>
+        <Slider {...settings}>
+          {products.map((product, i) => {
+            return (
+              <div className={styles.container} key={i}>
+                <div>
+                  <img src={product.images[0]} />
+                </div>
+                <p>{product.title}</p>
+                <p>Deal price: ₹{product.price}.00</p>
+                <p>
+                  M.R.P: <span>{product.mrp}</span>
+                </p>
+                <p>You Save: {product.discout}%</p>
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
     </>
   );
 }
