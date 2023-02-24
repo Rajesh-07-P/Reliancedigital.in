@@ -5,6 +5,12 @@ const adminRouter = express.Router()
 const jwt = require('jsonwebtoken')
 
 
+adminRouter.get('/',async(req,res)=>{
+const data=await RegisterModel.find()
+res.send(data)
+})
+
+
 adminRouter.post('/register', async (req, res) => {
   const { name, mobile, email, pass, gender } = req.body
   try {
