@@ -7,6 +7,10 @@ const ForgotPassword = () => {
             <h1 className={styles.head}>Forgot Password</h1>
             <div className={styles.form}>
                 <div>
+                    <label htmlFor="email">E-Mail*</label><br />
+                    <input type="email" placeholder='Enter Email Address' required />
+                </div>
+                <div>
                     <label htmlFor="Email">Password*</label><br />
                     <input type="password" placeholder='Enter New Password' required />
                 </div>
