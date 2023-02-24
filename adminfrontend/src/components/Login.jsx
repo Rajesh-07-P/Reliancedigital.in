@@ -17,7 +17,6 @@ const Login = () => {
                 <button>Login</button>
                 <div className={styles.alrdrgstr}>
                     <a href="/forgotpassword" className={styles.alrdrgstr}>Forgot Password</a>
-                    <a href="/verify" className={styles.alrdrgstr}>Verify Email</a>
                 </div>
             </div>
         </div>
