@@ -118,12 +118,3 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
-
-@media screen and (max-width:600px){
-    .slick-slider{
-        height: 180px;
-    }
-    .slick-slider img{
-        height: 150px;
-    }
-}

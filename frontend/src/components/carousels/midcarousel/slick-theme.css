@@ -72,45 +72,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.boatcontainer .slick-prev {
-  left: -52px;
+.slick-prev {
+  left: 0px;
   z-index: 1;
 }
 [dir="rtl"] .slick-prev {
   right: -25px;
   left: auto;
 }
-.boatcontainer .slick-prev:before {
+.slick-prev:before {
   content: "<";
   background: rgb(225, 225, 225);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 30px 15px;
+  padding: 30px 10px;
   color: black;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  cursor: pointer;
-  /* border-left: 0px; */
+  border: 1px solid rgb(75, 75, 75);
+  border-left: 0px;
 }
 [dir="rtl"] .slick-prev:before {
   content: "→";
 }
 
-.boatcontainer .slick-next {
-  right: -30px;
+.slick-next {
+  right: 13px;
 }
 [dir="rtl"] .slick-next {
   right: auto;
   left: 0px;
 }
-.boatcontainer .slick-next:before {
+.slick-next:before {
   content: ">";
   background: rgb(225, 225, 225);
-   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 30px 15px;
+  padding: 25px 10px;
   color: black;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  /* border-right: 0px; */
+  border: 1px solid rgb(75, 75, 75);
+  border-right: 0px;
 }
 [dir="rtl"] .slick-next:before {
   content: "←";

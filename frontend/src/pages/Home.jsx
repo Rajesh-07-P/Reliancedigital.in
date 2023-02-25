@@ -1,5 +1,7 @@
 import React from "react";
 import BoatCarousel from "../components/carousels/boatproducts/BoatCarousel";
+import Mid from "../components/carousels/midcarousel/Mid";
+import Summersale from "../components/carousels/SummersaleCarousel/boatproducts/Summersale";
 import SimpleSlider from "../components/carousels/topcarousel/SimpleSlider";
 import styles from "./Home.module.css";
 
@@ -12,6 +14,11 @@ const Home = () => {
         <div>View all</div>
       </div>
       <BoatCarousel />
+      <div className={styles.boatoffers}>
+        <h2>Pre Summer Sale | Upto 60% Off</h2>
+        <div>View all</div>
+      </div>
+      <Summersale />
       <div className={styles.deals}>
         <h2>Great Deals on Electronics</h2>
         <div>
@@ -41,6 +48,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Mid/>
       <div className={styles.brandpromise}>
         <h2>THE RELIANCE DIGITAL BRAND PROMISE</h2>
         <div>

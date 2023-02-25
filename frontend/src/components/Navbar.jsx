@@ -9,9 +9,6 @@ import { BiSearch } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
 
 const Navbar = () => {
-
-
-
   return (
     <>
       <header className={styles.header}>
@@ -27,14 +24,19 @@ const Navbar = () => {
           </li>
         </ul>
         <div className={styles.headermain}>
-          <img src={i1} className={styles.logo} />
+          <div className={styles.iconcontainer}>
+            <div className={styles.icon}>
+              <i className="fa fa-bars"></i>
+            </div>
+            <img src={i1} className={styles.logo} />
+          </div>
           <div className={styles.searchinputdiv}>
             <input
               type="text"
               placeholder="Find your favourite products"
               className={styles.searchinput}
             />
-            <BiSearch />
+            <BiSearch className={styles.searchicon}/>
           </div>
           <ul className={styles.headermainlink}>
             <MdLocationOn />
