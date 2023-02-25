@@ -6,7 +6,10 @@ const productRouter = express.Router();
 productRouter.get("/", async (req, res) => {
 
     try {
-      const products = await ProductModel.find( req.query  );
+      const obj={
+        [req.query.sort]:req.query.order==="asc"? 1:-1
+      }
+      const products = await ProductModel.find(req.query).sort(obj);  
       res.send(products);
     } catch (err) {
       console.log(err);
