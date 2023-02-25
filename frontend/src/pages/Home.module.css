@@ -97,3 +97,31 @@
     color: grey;
     font-size: 14px;
 }
+
+@media screen and (max-width:600px){
+  .boatoffers{
+    margin: 0px 10px;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+  }
+
+  .boatoffers h2{
+    font-size: 17px;
+    margin: 0px;
+  }
+
+  .boatofferssmall{
+    margin-top: 160px;
+  }
+  .deals{
+    margin-top: 140px;
+  }
+  .deals div{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  .deals>div>div{
+    width: 100%;
+    height: 120px;
+  }
+}

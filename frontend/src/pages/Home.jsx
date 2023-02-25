@@ -14,7 +14,7 @@ const Home = () => {
         <div>View all</div>
       </div>
       <BoatCarousel />
-      <div className={styles.boatoffers}>
+      <div className={`${styles.boatoffers} ${styles.boatofferssmall}`}>
         <h2>Pre Summer Sale | Upto 60% Off</h2>
         <div>View all</div>
       </div>

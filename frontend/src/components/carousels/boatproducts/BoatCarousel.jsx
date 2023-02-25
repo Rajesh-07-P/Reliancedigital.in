@@ -17,8 +17,8 @@ export default function BoatCarousel() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 5,
+          slidesToScroll: 5,
           infinite: true,
           dots: true,
         },
@@ -34,7 +34,7 @@ export default function BoatCarousel() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },

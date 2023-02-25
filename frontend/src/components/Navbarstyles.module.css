@@ -66,6 +66,10 @@
   font-size: 18px;
 }
 
+.links {
+  display: flex;
+}
+
 .headermainlinktext {
   border-right: 1px solid #dadada;
   padding: 0px 8px 0px 5px;
@@ -108,6 +112,7 @@
 }
 
 .dropdowncontainer1 {
+  transition: all 1s;
   display: none;
   width: 96%;
   height: auto;
@@ -130,11 +135,8 @@
   background-image: url("https://www.reliancedigital.in/medias/Computers-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMzI5NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDQzL2g1Ny85NDU1NTQ0Nzk1MTY2LmpwZ3w3YThhZWU1NGYwZjY4ODA2Yjg1N2MyNzk4MTNlN2RkNGUxMjE1NjI5ZGQyMzAzOTk2NTMxZGIxOWMzOGM1NTJl");
 }
 
-.navlistitem:hover .dropdowncontainer1 {
-  display: block;
-}
-
 .dropdowncontainer {
+  transition: all 1s;
   display: none;
   width: 96%;
   height: auto;
@@ -152,7 +154,14 @@
   cursor: auto;
   z-index: 1;
 }
+
+.navlistitem:hover .dropdowncontainer1 {
+  transition: all 1s;
+  display: block;
+}
+
 .navlistitem:hover .dropdowncontainer {
+  transition: all 1s;
   display: block;
 }
 
@@ -182,7 +191,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .header{
+  .header {
     height: 90px;
   }
   .headermain {
@@ -202,19 +211,19 @@
   .logo {
     width: 200px;
     height: 43px;
-    padding-top:5px;
+    padding-top: 5px;
   }
   .searchinputdiv {
     max-width: 400px;
     height: 30px;
   }
-  .searchinput{
+  .searchinput {
     height: 18px;
     width: 300px;
     flex-grow: 2;
     margin-left: 5px;
   }
-  .searchicon{
+  .searchicon {
     width: 30px;
   }
   .headerlink {
@@ -236,7 +245,7 @@
   .headermainlink {
     order: 2;
   }
-  .headermainlink{
+  .headermainlink {
     gap: 10px;
     padding-top: 10px;
     font-size: 20px;

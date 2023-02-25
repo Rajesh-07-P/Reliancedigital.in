@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-import "./slick.css";
-import "./slick-theme.css";
+// import "./slick.css";
+// import "./slick-theme.css";
 import styles from "./products.module.css";
 import products from "./data.js";
 
@@ -17,8 +17,8 @@ export default function Summersale() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 5,
+          slidesToScroll: 5,
           infinite: true,
           dots: true,
         },
@@ -34,8 +34,8 @@ export default function Summersale() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 5,
+          slidesToScroll: 2,
         },
       },
     ],
