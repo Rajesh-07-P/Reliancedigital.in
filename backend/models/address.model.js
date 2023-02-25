@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
 const addressschema = mongoose.Schema({
-    pincode : Number,
-    firstname : String,
-    lastname : String,
-    address: String,
-    landmark:String,
-    city:String,
-    state:String,
-    mobile:Number,
-    userID: String
+    pincode : { type: Number, required: true },
+    firstname : { type: String, required: true },
+    lastname : { type: String, required: true },
+    address: { type: String, required: true },
+    landmark: { type: String, required: true },
+    city: { type: String, required: true },
+    state: { type: String, required: true },
+    mobile: { type: Number, required: true },
+    userID: { type: String }
 });
 
-const AddressModel=mongoose.model("address",addressschema)
+const AddressModel = mongoose.model("address", addressschema);
 
-module.exports={
+module.exports = {
     AddressModel
-}
+};
 
 
 // {
