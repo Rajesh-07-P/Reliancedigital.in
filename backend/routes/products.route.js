@@ -28,9 +28,10 @@ productRouter.get("/:id",async(req,res)=>{
 productRouter.post("/addproduct", async (req, res) => {
   const payload = req.body;
   try {
-    const product = new ProductModel(payload);
+    // const product = new ProductModel(payload);
 
-    await product.save();
+    // await product.save();
+    await ProductModel.insertMany(payload);
 
     res.send("product added successfully");
   } catch (err) {

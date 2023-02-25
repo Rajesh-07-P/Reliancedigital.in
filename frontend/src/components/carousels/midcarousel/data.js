@@ -7,3 +7,5 @@ let images = [
   "https://www.reliancedigital.in/medias/Apple-HomePod-Buy-now-CLP-Banner-31-01-2023-01.jpg?context=bWFzdGVyfGltYWdlc3wxMTE5OTJ8aW1hZ2UvanBlZ3xpbWFnZXMvaDZkL2g2NS85OTU2OTk4MTE5NDU0LmpwZ3xjYjc3ZmY0NmNkNDMwZjU3NGJiMzFkOTY0NTFjOWUwN2YzY2E5ODA5NDk3NTc0ZjI3MzIxMDQ0OGM5Yzg1ZGQ3",
   "https://www.reliancedigital.in/medias/OPPO-Reno8-T5G-CLP-Banner-10-02-2023.jpg?context=bWFzdGVyfGltYWdlc3w3MzIyOXxpbWFnZS9qcGVnfGltYWdlcy9oZDUvaDE3Lzk5NjA2NzQxMzE5OTguanBnfDA1MGZjYzliOTBjM2UxZmMyMjA3MDBmYWFiYmU4MzcyMjlmZmJjZGEyMzI4ZDk5M2NiODBmMGFmMGQ2NzE3NTI",
 ];
+
+export default images
