@@ -12,7 +12,7 @@ const Payment = () => {
     alert("your order has been placed");
   };
   const fetchcart = () => {
-    fetch("http://localhost:7700/cart", {
+    fetch("http://localhost:4500/cart", {
       headers: { Authorization: localStorage.getItem("token") },
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const Payment = () => {
   };
 
   const fetchAddress = () => {
-    fetch("http://localhost:7700/address", {
+    fetch("http://localhost:4500/address", {
       headers: { Authorization: localStorage.getItem("token") },
     })
       .then((res) => res.json())

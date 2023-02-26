@@ -22,10 +22,9 @@ useEffect(()=>{
 
 const handleclik=async()=>{
   
-  let names=axios.post("http://localhost:4500/cart/add", {
+  let names=await axios({method:"post",url:"http://localhost:4500/cart/add", data:
    data
-  })
-  .then((response) => {
+  ,headers:{Authorization:localStorage.getItem("token")}}).then((response) => {
     console.log(response);
   })
   console.log(names)

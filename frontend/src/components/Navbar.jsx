@@ -47,7 +47,7 @@ const Navbar = () => {
             <Link to="/cart" className={styles.links}>
               <div>
                 <FaShoppingCart />
-                <div
+                {/* <div
                   style={{
                     width: "15px",
                     height: "15px",
@@ -64,7 +64,7 @@ const Navbar = () => {
                   }}
                 >
                   1
-                </div>
+                </div> */}
               </div>
               <li className={styles.headermainlinktext}>Cart</li>
             </Link>
@@ -86,9 +86,9 @@ const Navbar = () => {
               <div className={styles.dropdownlists}>
                 <div>
                   <ul>
-                    <li>
+                    <Link to="/smartphone">
                       <a href="/smartphone">Smartphones</a>
-                    </li>
+                    </Link>
                   </ul>
                   <ul>
                     <li>Smartwatches</li>
