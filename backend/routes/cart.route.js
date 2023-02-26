@@ -19,28 +19,23 @@ res.send({"msg":"not able to create post"})
     }
 })
 cartRouter.get("/",async(req,res)=>{
-    const token=req.headers.authorization;
-    jwt.verify(token,"masai",async(err,decoded)=>{
-        if(decoded)
-        {
-            try
-            {
-                const products=await CartModel.find({userID:decoded?.userID})
-                res.send(products)
     
-            }
-            catch(err)
-            {
-                res.send({"msg":"data not found"})
-            }
-        }
-        else
-        {
-            res.send({"msg":"data can't reached"})
-        }
-       
-    })
-})
+  
+    try
+    {
+        const products=await CartModel.find({userID:req.body.userID})
+        res.send(products)
+
+    }
+    catch(err)
+    {
+        res.send({"msg":"data not found"})
+    }
+}
+
+
+
+)
 
 
 cartRouter.patch("/update/:id",async(req,res)=>{
