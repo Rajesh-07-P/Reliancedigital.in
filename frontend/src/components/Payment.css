@@ -1,13 +1,23 @@
+
 .payment{
     width: 90%;
     display: flex;
     margin: auto;
+    gap: 30px;
+
+
+}
+.payment-address{
+    gap: 10px;
+    
+    
 }
 .payment-address>div
 {
-    width: 90%;
+    width: 60%;
     display: block;
     margin-left: 5%
+    
 
     
 }
@@ -19,7 +29,7 @@
 .payment>:nth-child(2)
 {
     width: 80%;
-    border-left: 1px solid black;
+    /* border-left: 1px solid black; */
     padding-left: 30px;
 }
 map {
@@ -73,6 +83,7 @@ button{
         {
             font-size: 20px;
             font-weight: 600;
+            color: #003380;
         } 
     .atm
     {
@@ -82,6 +93,7 @@ button{
     {
         font-size: 12px;
         font-weight: 500;
+       
     }
  @media screen and (max-width: 500px) {
     .payment{
@@ -112,13 +124,13 @@ button{
 .payment>:nth-child(1)
 {
     width: 50%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-bottom: 20px;
 }
 .payment>:nth-child(2)
 {
     width: 99%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 Button{
     width: 99%;
@@ -174,13 +186,13 @@ p
     .payment>:nth-child(1)
     {
         width: 50%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         margin-bottom: 20px;
     }
     .payment>:nth-child(2)
     {
         width: 99%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
     }
     p
     {
