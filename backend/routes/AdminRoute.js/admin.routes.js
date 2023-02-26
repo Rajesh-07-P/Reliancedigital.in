@@ -3,15 +3,11 @@ const RegisterModel = require('../../models/AdminModels/AdminRegister.model')
 const bcrypt = require('bcrypt')
 const adminRouter = express.Router()
 const jwt = require('jsonwebtoken')
+require("dotenv").config();
 
+const {fieldsAnalyzer}=require('../../middlewares/AdminMiddleware/fieldsAnalyzer.middleware')
 
-adminRouter.get('/',async(req,res)=>{
-const data=await RegisterModel.find()
-res.send(data)
-})
-
-
-adminRouter.post('/register', async (req, res) => {
+adminRouter.post('/register', fieldsAnalyzer ,async (req, res) => {
   const { name, mobile, email, pass, gender } = req.body
   try {
     bcrypt.hash(pass, 5, async (err, hash) => {
@@ -34,7 +30,7 @@ adminRouter.post("/login", async (req, res) => {
     if (admin.length > 0) {
       bcrypt.compare(pass, admin[0].pass, (err, result) => {
         if (result) {
-          let token = jwt.sign({ adminID: admin[0]._id }, "masai");
+          let token = jwt.sign({ adminID: admin[0]._id }, process.env.key);
           res.send({ msg: "Admin is loggedIn", token: token });
         } else {
           res.send({ msg: "Wrong Credentials" });
@@ -48,7 +44,7 @@ adminRouter.post("/login", async (req, res) => {
   }
 });
 
-adminRouter.patch('/forgot-password/', async (req, res) => {
+adminRouter.patch('/forgot-password', async (req, res) => {
   const { email, pass } = req.body
   const data = await RegisterModel.find({ email })
   if (data.length > 0) {
