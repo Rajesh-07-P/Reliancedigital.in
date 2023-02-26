@@ -27,6 +27,7 @@
   display: flex;
   padding: 16px 0px 0px 48px;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -48,10 +49,11 @@
 
 .searchinput {
   width: 400px;
-  margin-left: 20px;
+  margin-left: 0px;
   outline: 0px;
   font-size: 16px;
   color: black;
+  height: 30px;
 }
 
 .headermainlink {
@@ -62,6 +64,10 @@
   list-style: none;
   padding: 4px 8px;
   font-size: 18px;
+}
+
+.links {
+  display: flex;
 }
 
 .headermainlinktext {
@@ -84,6 +90,7 @@
   color: #fff;
   padding: 0 2%;
   display: flex;
+  height: 40px;
   justify-content: space-between;
 }
 
@@ -105,6 +112,7 @@
 }
 
 .dropdowncontainer1 {
+  transition: all 1s;
   display: none;
   width: 96%;
   height: auto;
@@ -127,11 +135,8 @@
   background-image: url("https://www.reliancedigital.in/medias/Computers-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMzI5NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDQzL2g1Ny85NDU1NTQ0Nzk1MTY2LmpwZ3w3YThhZWU1NGYwZjY4ODA2Yjg1N2MyNzk4MTNlN2RkNGUxMjE1NjI5ZGQyMzAzOTk2NTMxZGIxOWMzOGM1NTJl");
 }
 
-.navlistitem:hover .dropdowncontainer1 {
-  display: block;
-}
-
 .dropdowncontainer {
+  transition: all 1s;
   display: none;
   width: 96%;
   height: auto;
@@ -149,7 +154,14 @@
   cursor: auto;
   z-index: 1;
 }
+
+.navlistitem:hover .dropdowncontainer1 {
+  transition: all 1s;
+  display: block;
+}
+
 .navlistitem:hover .dropdowncontainer {
+  transition: all 1s;
   display: block;
 }
 
@@ -218,10 +230,6 @@
     display: none;
   }
   .navlist {
-    display: block;
-    height: auto;
-  }
-  .navcontainer {
     display: none;
   }
   .headermainlinktext {
@@ -242,24 +250,4 @@
     padding-top: 10px;
     font-size: 20px;
   }
-  .dropdownlists {
-    display: block;
-  }
-  .dropdowncontainer {
-    background-image: none;
-  }
-  .dropdowncontainer1 {
-    background-image: none;
-    background-color: white;
-    color: black;
-    display: none;
-  }
-  .navlistitem:hover .dropdowncontainer1 {
-    /* transition: all 1s; */
-    display: none;
-  }
-  .navlistitem:hover .dropdowncontainer {
-  transition: all 1s;
-  display: none;
-}
 }

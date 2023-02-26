@@ -7,11 +7,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-
-
-
   return (
     <>
       <header className={styles.header}>
@@ -27,7 +25,9 @@ const Navbar = () => {
           </li>
         </ul>
         <div className={styles.headermain}>
-          <img src={i1} className={styles.logo} />
+          <Link to="/">
+            <img src={i1} className={styles.logo} />
+          </Link>
           <div className={styles.searchinputdiv}>
             <input
               type="text"
@@ -53,16 +53,18 @@ const Navbar = () => {
                     height: "15px",
                     borderRadius: "50%",
                     backgroundColor: "black",
-                    color:"white",
-                    marginTop:"-25px",
-                    marginLeft:"15px",
-                    fontSize:"10px",
-                    display:"flex",
-                    justifyContent:"center",
-                    alignItems:"center",
-                    zIndex:1
+                    color: "white",
+                    marginTop: "-25px",
+                    marginLeft: "15px",
+                    fontSize: "10px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    zIndex: 1,
                   }}
-                >1</div>
+                >
+                  1
+                </div>
               </div>
               <li className={styles.headermainlinktext}>Cart</li>
             </Link>
@@ -71,17 +73,6 @@ const Navbar = () => {
               <li className={styles.headermainlinktext}>Login</li>
             </Link>
           </div>
-          <ul className={styles.headermainlink}>
-            <MdLocationOn />
-            <li className={styles.headermainlinktext}>
-              {" "}
-              Deliver to Warangal 506370
-            </li>
-            <FaShoppingCart />
-            <li className={styles.headermainlinktext}>Cart</li>
-            <FaUser />
-            <li className={styles.headermainlinktext}>Login</li>
-          </ul>
         </div>
       </header>
       <nav className={styles.navcontainer}>
