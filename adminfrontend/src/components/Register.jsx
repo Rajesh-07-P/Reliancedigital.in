@@ -4,8 +4,36 @@ import style from '../styles/Register.module.css'
 import WlcmLodr from './WlcmLodr'
 const Register = () => {
     const [loading, setLoading] = useState(false)
-    // const [fstName,setFstName]=useState('')
-    // const [lstName,setLstName]=useState('')    
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [gender, setGender] = useState('')
+    const [mobile, setMobile] = useState('')
+    const [pass, setPass] = useState('')
+
+    const handleSubmit = () => {
+        const payload = {
+            email,
+            pass,
+            name,
+            gender,
+            mobile
+        }
+        // console.log(payload)
+        fetch("http://localhost:4500/admin/register",
+            {
+                method: "POST",
+                body: JSON.stringify(payload),
+                headers: { "Content-type": "application/json" }
+            }).then(res => res.json())
+            .then((res) => {
+                console.log(res);
+                // localStorage.setItem("token", res.token);
+            })
+            .catch(err => console.log(err))
+    }
+
+
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
@@ -23,25 +51,25 @@ const Register = () => {
                 <div className={style.form}>
                     <div>
                         <label htmlFor="name">Name*</label><br />
-                        <input type="text" placeholder='Enter Your Name' required />
+                        <input type="text" placeholder='Enter Your Name' required value={name} onChange={(e) => setName([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="mobile">Mobile No.*</label><br />
-                        <input type="number" maxLength={10} placeholder='Enter Your Number' />
+                        <input type="number" maxLength={10} placeholder='Enter Your Number' value={mobile} onChange={(e) => setMobile([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="email">E-Mail*</label><br />
-                        <input type="email" placeholder='Enter Your Email Address' required />
+                        <input type="email" placeholder='Enter Your Email Address' required value={email} onChange={(e) => setEmail([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="password">Create Password*</label><br />
-                        <input type="number" placeholder='Create Password' maxLength={10} required />
+                        <input type="number" placeholder='Create Password' maxLength={10} required value={pass} onChange={(e) => setPass([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="gender">Gender*</label><br />
-                        <input type="text" placeholder='Enter Your Gender' required maxLength={8} />
+                        <input type="text" placeholder='Enter Your Gender' required maxLength={8} value={gender} onChange={(e) => setGender([...e, e.target.value])} />
                     </div>
-                    <button>Register</button><br />
+                    <button onClick={handleSubmit}>Register</button><br />
                     <span>Already Registered,<a href="/login" className={style.alrdrgstr}>Login here</a></span>
                 </div>
             </div>

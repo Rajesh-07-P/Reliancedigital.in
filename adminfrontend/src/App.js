@@ -5,20 +5,26 @@ import ForgotPassword from './components/ForgotPassword';
 import Login from './components/Login';
 import NotFound from './components/NotFound';
 import Register from './components/Register';
-import Dashboard from './components/dashboard/Dashboard';
+// Dashboard imports
+import CreateProduct from './components/dashboard/CreateProduct.jsx'
+import Product from './components/dashboard/Product';
+import { Order } from './components/dashboard/Order';
 
 function App() {
   return (
     <div className="App">
-     
-        <Routes>
-          
-        <Route path='/register' element={<Register />} />       
+
+      <Routes>
+
+        <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
-       <Route path='/forgotpassword' element={<ForgotPassword/>} />
-       <Route path='/dashboard' element={<Dashboard/>} />
-       <Route path='*' element={<NotFound/>}/>
- 
+        <Route path='/forgotpassword' element={<ForgotPassword />} />
+        {/* dashboard routes */}
+        <Route path='/create-product' element={<CreateProduct />} />
+        <Route path='/products' element={<Product />} />
+        <Route path='/orders' element={<Order/>}/>
+        {/* if route is not exists */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
