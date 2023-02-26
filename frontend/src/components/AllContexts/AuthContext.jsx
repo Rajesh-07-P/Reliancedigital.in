@@ -6,6 +6,7 @@ export const Authcontext = createContext();
 function Authcontextprovider({ children }) {
 
   const [productdata, setproductdata] = useState();
+  const [items,setItems]=useState();
 
 
 
@@ -13,7 +14,8 @@ function Authcontextprovider({ children }) {
     <Authcontext.Provider
       value={{
         productdata,
-        setproductdata
+        setproductdata,
+        items,setItems
       }}
     >
       {children}
