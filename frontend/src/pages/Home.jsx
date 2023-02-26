@@ -1,8 +1,10 @@
 import React from "react";
+import AppleCarousel from "../components/carousels/apple/AppleCarousel";
 import BoatCarousel from "../components/carousels/boatproducts/BoatCarousel";
 import Mid from "../components/carousels/midcarousel/Mid";
 import Summersale from "../components/carousels/SummersaleCarousel/boatproducts/Summersale";
 import SimpleSlider from "../components/carousels/topcarousel/SimpleSlider";
+import TvCarousel from "../components/carousels/tv/TvCarousel";
 import styles from "./Home.module.css";
 
 const Home = () => {
@@ -48,7 +50,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Mid/>
+      <Mid />
       <div className={styles.brandpromise}>
         <h2>THE RELIANCE DIGITAL BRAND PROMISE</h2>
         <div>
@@ -89,6 +91,21 @@ const Home = () => {
       <div className={styles.boatoffers}>
         <h2>Apple Watches at Best Prices</h2>
         <div>View all</div>
+      </div>
+      <AppleCarousel />
+      <div className={styles.boatoffers}>
+        <h2>Trending in Televisions</h2>
+        <div>View all</div>
+      </div>
+      <div style={{ display: "flex",margin:"auto",width:"94%",justifyContent:"space-between",marginBottom:"20px"}}>
+        <div style={{marginLeft:"80px"}}>
+          <TvCarousel />
+        </div>
+        <img
+          src="https://www.reliancedigital.in/medias/Trending-in-TVs-Producst-Carousel-02-01-2022.jpg?context=bWFzdGVyfGltYWdlc3w5NDYyOHxpbWFnZS9qcGVnfGltYWdlcy9oNTYvaDBhLzk5MzkyMDU0MjMxMzQuanBnfGRmODcwYWI0YjUzMjA0NDBhNmQzMjNlZWE3ZGZlYzYzMThlMDBiNWI0ZWE3MzMxYzRjYmYyNGQ1OGU4NjgyNjg"
+          alt=""
+          style={{width:"240px",height:"240px"}}
+        />
       </div>
     </div>
   );

@@ -83,7 +83,7 @@
 .slick-prev:before {
   content: "<";
   background: rgb(225, 225, 225);
-  padding: 30px 10px;
+  padding: 30px 8px;
   color: black;
   border: 1px solid rgb(75, 75, 75);
   border-left: 0px;
@@ -102,7 +102,7 @@
 .slick-next:before {
   content: ">";
   background: rgb(225, 225, 225);
-  padding: 25px 10px;
+  padding: 30px 10px;
   color: black;
   border: 1px solid rgb(75, 75, 75);
   border-right: 0px;
