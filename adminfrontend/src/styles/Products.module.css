@@ -1,0 +1,23 @@
+.product {
+    /* border: 1px solid red; */
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: repeat(3, 25vw);
+    gap: 15px;
+    justify-content: center;
+}
+
+
+/* media query for tablet view */
+
+@media screen and (min-width:501px) and (max-width:768px) {
+    .product {
+        grid-template-columns: repeat(2, 35vw);
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:500px) {
+    .product {
+        grid-template-columns: repeat(1, 80vw);
+    }
+}
