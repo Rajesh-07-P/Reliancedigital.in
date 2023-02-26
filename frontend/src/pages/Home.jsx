@@ -1,4 +1,5 @@
 import React from "react";
+import SimpleSlider from "../components/carousels/topcarousel/SimpleSlider"
 import AppleCarousel from "../components/carousels/apple/AppleCarousel";
 import BoatCarousel from "../components/carousels/boatproducts/BoatCarousel";
 import Mid from "../components/carousels/midcarousel/Mid";
@@ -12,6 +13,8 @@ const Home = () => {
     <div>
       <SimpleSlider />
       <div className={styles.boatoffers}>
+        <h2 >Special Offers on Boat</h2>
+        <div >View all</div>
         <h2>Special Offers on Boat</h2>
         <div>View all</div>
       </div>

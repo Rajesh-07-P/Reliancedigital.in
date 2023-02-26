@@ -4,7 +4,7 @@ import "./slick.css";
 import "./slick-theme.css";
 import images from "./data.js"
 
-export default function Mid() {
+export default function Sliders() {
 var settings = {
   dots: true,
   infinite: true,
