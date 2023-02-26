@@ -31,8 +31,13 @@ const [All,setAll]=useState(false)
  const[minprice,setminprice]=useState(0)
  const[maxprice,setmaxprice]=useState(10000)
  const [Alldata,setAlldata]=useState([])
-
-
+const [Xiaomi,setXiaomi]=useState(false)
+const [Samsung,setSamsung]=useState(false)
+const [OnePlus,setOnePlus]=useState(false)
+const [OPPO,setOPPO]=useState(false)
+const [VIVO,setVIVO]=useState(false)
+const [Tecno,setTecno]=useState(false)
+const [precetag,setprecetag]=useState(false)
   //Loading Status
   const [isLoading, setisLoading] = React.useState(false);
 
@@ -80,13 +85,52 @@ let x=(last[last.length-1]);
     handleBrandAll()
   
   }
+
+  
+  const handleXiaomi = () => {
+    setXiaomi(!Xiaomi);
+    handleBrandXiaomi()
+  
+  }
+
+  const handleSamsung = () => {
+    setSamsung(!Samsung);
+    handleBrandSamsung()
+  
+  }
+  
 const handleRealme = () => {
   setRealme(!Realme);
   handleBrandRealme()
 }
+const handleOPPO = () => {
+  setOPPO(!OPPO);
+  handleBrandOPPO()
+
+}
+
+const handleOnePlus = () => {
+  setOnePlus(!OnePlus);
+  handleBrandOnePlus()
+
+}
+
 const handleApple = () => {
   setApple(!Apple);
   handleBrandApple()
+
+}
+
+
+const handleVIVO = () => {
+  setVIVO(!VIVO);
+  handleBrandVIVO()
+
+}
+
+const handleTecno = () => {
+  setTecno(!Tecno);
+  handleBrandTecno()
 
 }
 
@@ -98,6 +142,23 @@ const handleBrandAll=async()=>{
    setData(res.data)
   }
 }
+
+
+const handleBrandXiaomi=async()=>{
+
+  if(Xiaomi===false){
+     const res = await axios.get(`http://localhost:4500/products?brand=Xiaomi`);
+   setData(res.data)
+  }
+}
+const handleBrandSamsung=async()=>{
+
+  if(Samsung===false){
+     const res = await axios.get(`http://localhost:4500/products?brand=Samsung`);
+   setData(res.data)
+  }
+}
+
 const handleBrandRealme=async()=>{
  if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Realme`);
@@ -112,6 +173,42 @@ const handleBrandApple=async()=>{
    setData(res.data)
   }
 }
+
+const handleBrandOnePlus=async()=>{
+
+  if(Realme===false){
+     const res = await axios.get(`http://localhost:4500/products?brand=One Plus`);
+   setData(res.data)
+  }
+}
+
+const handleBrandOPPO=async()=>{
+
+  if(Realme===false){
+     const res = await axios.get(`http://localhost:4500/products?brand=OPPO`);
+   setData(res.data)
+  }
+}
+
+
+const handleBrandVIVO=async()=>{
+
+  if(Realme===false){
+     const res = await axios.get(`http://localhost:4500/products?brand=VIVO`);
+   setData(res.data)
+  }
+}
+
+
+const handleBrandTecno=async()=>{
+
+  if(Realme===false){
+     const res = await axios.get(`http://localhost:4500/products?brand=Tecno`);
+   setData(res.data)
+  }
+}
+
+
 
 
 const handleBrandAlls=async()=>{
@@ -139,6 +236,38 @@ const handlefiletr=()=>{
   setData(prices)
  
 }
+
+
+
+
+const handleprecetag = () => {
+  setprecetag(!precetag);
+  handleBrandprecetag()
+
+}
+const handleprecenta=async()=>{
+  const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
+  setAlldata(res.data)
+
+}
+const handleBrandprecetag=()=>{
+  if(precetag===false){
+    handleprecenta()
+    presentages()
+    presentages()
+}
+}
+const presentages=()=>{
+  let prices=Alldata.filter((el)=>{
+    if(el.discount<=40 && el.discount>=30){
+      return(el)
+    }
+    
+  })
+  setData(prices)
+  console.log(prices)
+}
+
 
   return (
     <Box className="wrapper">
@@ -206,13 +335,16 @@ const handlefiletr=()=>{
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
+                      checked={Xiaomi}
+                      onChange={handleXiaomi}
                     />
                     <label className="label"> Xiaomi</label>
                   </Box>
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
-                     
+                      checked={Samsung}
+                      onChange={handleSamsung}
             
                     />
                     <label className="label"> Samsung</label>
@@ -237,36 +369,38 @@ const handlefiletr=()=>{
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
-
-                     
+                      
+                      checked={OnePlus}
+                      onChange={handleOnePlus}
                     />
                     <label className="label">One Plus</label>
                   </Box>
                   <Box className="filter-checkbox">
                     <input
                      type="checkbox"
+                     checked={OPPO}
+                     onChange={handleOPPO}
                     />
                     <label className="label">OPPO</label>
                   </Box>
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
+                      checked={VIVO}
+                     onChange={handleVIVO}
                     />
-                    <label className="label">Motorola</label>
+                    <label className="label">VIVO</label>
                   </Box>
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
-                     
+                      checked={Tecno}
+                     onChange={handleTecno}
+                      
                     />
                     <label className="label">Tecno</label>
                   </Box>
-                  <Box className="filter-checkbox">
-                    <input
-                      type="checkbox"
-                    />
-                    <label className="label">Nokia</label>
-                  </Box>
+                 
                   
                 </AccordionPanel>
               </AccordionItem>
@@ -289,70 +423,16 @@ const handlefiletr=()=>{
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
-                      onChange={() => {
-                        if (Discount[1] !== 20) {
-                          setDiscount([0, 20]);
-                        } else {
-                          setDiscount([0, 100]);
-                        }
-                      }}
-                      checked={Discount[1] === 20}
+                      checked={precetag}
+                     onChange={handleprecetag}
                     />
                     <label className="label">30% to 40%</label>
                   </Box>
+                  
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
-                      onChange={() => {
-                        if (Discount[0] !== 21) {
-                          setDiscount([21, 40]);
-                        } else {
-                          setDiscount([0, 100]);
-                        }
-                      }}
-                      checked={Discount[0] === 21}
-                    />
-                    <label className="label">20% to 30%</label>
-                  </Box>
-                  <Box className="filter-checkbox">
-                    <input
-                      type="checkbox"
-                      onChange={() => {
-                        if (Discount[0] !== 41) {
-                          setDiscount([41, 50]);
-                        } else {
-                          setDiscount([0, 100]);
-                        }
-                      }}
-                      checked={Discount[0] === 41}
-                    />
-                    <label className="label"> 41% - 50%</label>
-                  </Box>
-                  <Box className="filter-checkbox">
-                    <input
-                      type="checkbox"
-                      onChange={() => {
-                        if (Discount[0] !== 51) {
-                          setDiscount([51, 100]);
-                        } else {
-                          setDiscount([0, 100]);
-                        }
-                      }}
-                      checked={Discount[0] === 51}
-                    />
-                    <label className="label"> 10% to 20%</label>
-                  </Box>
-                  <Box className="filter-checkbox">
-                    <input
-                      type="checkbox"
-                      onChange={() => {
-                        if (Discount[0] !== 51) {
-                          setDiscount([51, 100]);
-                        } else {
-                          setDiscount([0, 100]);
-                        }
-                      }}
-                      checked={Discount[0] === 51}
+                      
                     />
                     <label className="label">upto 10%</label>
                   </Box>
