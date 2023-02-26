@@ -55,6 +55,7 @@ const ProductDetails = () => {
       console.log(response);
     });
     console.log(names);
+    alert('Add To Cart successfully')
   };
 
   if (data.length !== 0) {
