@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import i1 from "../assets/logo.jpeg";
 
 import styles from "./Navbarstyles.module.css";
@@ -50,7 +50,25 @@ const Navbar = () => {
               </p>
             </Link>
             <Link to="/cart" className={styles.links}>
-              <FaShoppingCart />
+              <div>
+                <FaShoppingCart />
+                <div
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    borderRadius: "50%",
+                    backgroundColor: "black",
+                    color:"white",
+                    marginTop:"-25px",
+                    marginLeft:"15px",
+                    fontSize:"10px",
+                    display:"flex",
+                    justifyContent:"center",
+                    alignItems:"center",
+                    zIndex:1
+                  }}
+                >1</div>
+              </div>
               <li className={styles.headermainlinktext}>Cart</li>
             </Link>
             <Link to="/login" className={styles.links}>
