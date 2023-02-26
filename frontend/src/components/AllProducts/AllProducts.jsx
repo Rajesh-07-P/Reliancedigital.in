@@ -44,7 +44,7 @@ const [precetag20,setprecetag20]=useState(false)
 const [precetag10,setprecetag10]=useState(false)
 const [precetagdata,setprecetagdata]=useState([])
 const [minvalues,setminvalues]=useState(0)
-const [maxvalues,setmaxvalues]=useState(500000)
+const [maxvalues,setmaxvalues]=useState(10000)
 const [textdata,settextdata]=useState('')
  
 

@@ -11,11 +11,12 @@ import {
   InputGroup,
   InputLeftElement,
   Button,
+  
 } from "@chakra-ui/react";
 import { useEffect, useContext } from "react";
 import { Authcontext } from "../AllContexts/AuthContext";
 
-import { useHistory, useLocation, useNavigate } from "react-router-dom";
+import { Link, useHistory, useLocation, useNavigate } from "react-router-dom";
 const ProductDetails = () => {
   const { items, setItems } = useContext(Authcontext);
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const ProductDetails = () => {
   console.log(productdata);
   const location = useLocation();
 
- 
+  
 
 
 
@@ -34,13 +35,13 @@ const ProductDetails = () => {
       .then((res) => setData(res.data));
 
       getItems();
-      setItems(4)
+      
   }, []);
 
   
   const getItems = async () => {
     let res = await axios({method:"get",url:"http://localhost:4500/cart",headers:{authorization:localStorage.getItem("token")}});
-    console.log(res.data);
+    setItems(res.data.length);
   };
 
  
@@ -55,8 +56,23 @@ const ProductDetails = () => {
       console.log(response);
     });
     console.log(names);
+    getItems()
     alert('Add To Cart successfully')
   };
+
+  const buynow=async()=>{
+    let names = await axios({
+      method: "post",
+      url: "http://localhost:4500/cart/add",
+      data: data,
+      headers: { Authorization: localStorage.getItem("token") },
+    }).then((response) => {
+      console.log(response);
+    });
+
+    getItems()
+    navigate('/cart')
+  }
 
   if (data.length !== 0) {
     return (
@@ -288,6 +304,7 @@ const ProductDetails = () => {
                     color={"white"}
                     bg={"#fc6027"}
                     style={{ width: "50%" }}
+                    onClick={buynow}
                   >
                     BUY NOW
                   </Button>
