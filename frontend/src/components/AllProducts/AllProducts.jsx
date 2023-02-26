@@ -38,21 +38,14 @@ const [OPPO,setOPPO]=useState(false)
 const [VIVO,setVIVO]=useState(false)
 const [Tecno,setTecno]=useState(false)
 const [precetag,setprecetag]=useState(false)
-  //Loading Status
-  const [isLoading, setisLoading] = React.useState(false);
+const [precetag30,setprecetag30]=useState(false)
+const [precetag20,setprecetag20]=useState(false)
+const [precetag10,setprecetag10]=useState(false)
+const [precetagdata,setprecetagdata]=useState([])
 
-  //  Product data
-  const [Append, setAppend] = React.useState([]);
 
-  // Total Products
-  const [total, setTotal] = React.useState(0);
+ 
 
-  //Pagination Page Count
-  const [page, setPage] = React.useState(1);
-
-  //filters
-  const [Price, setPrice] = React.useState([0, 100000]);
-  const [Discount, setDiscount] = React.useState([0, 100]);
 
  
   const [data,setData]=React.useState([])
@@ -76,7 +69,7 @@ let x=(last[last.length-1]);
       axios.get(`http://localhost:4500/products?brand=${x}`)
       .then((res)=>setData(res.data))
 
-      
+      handleprecenta()
   },[])
  
 
@@ -219,9 +212,8 @@ const handleBrandAlls=async()=>{
 
 
 const handleprice=async()=>{
-  console.log(Alldata)
+ 
   handleBrandAlls()
-
 
     handlefiletr()
  
@@ -247,18 +239,19 @@ const handleprecetag = () => {
 }
 const handleprecenta=async()=>{
   const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
-  setAlldata(res.data)
+  setprecetagdata(res.data)
 
 }
 const handleBrandprecetag=()=>{
   if(precetag===false){
+   
     handleprecenta()
     presentages()
-    presentages()
+    
 }
 }
 const presentages=()=>{
-  let prices=Alldata.filter((el)=>{
+  let prices=precetagdata.filter((el)=>{
     if(el.discount<=40 && el.discount>=30){
       return(el)
     }
@@ -267,7 +260,80 @@ const presentages=()=>{
   setData(prices)
   console.log(prices)
 }
+//30%
+const handleprecetag30 = () => {
+  setprecetag30(!precetag30);
+  handleBrandprecetag30()
 
+}
+const handleBrandprecetag30=()=>{
+  if(precetag===false){
+   
+    handleprecenta()
+    presentages30()
+    
+}
+}
+const presentages30=()=>{
+  let prices=precetagdata.filter((el)=>{
+    if(el.discount<=30 && el.discount>=20){
+      return(el)
+    }
+    
+  })
+  setData(prices)
+  console.log(prices)
+}
+
+//20%
+const handleprecetag20 = () => {
+  setprecetag20(!precetag20);
+  handleBrandprecetag20()
+
+}
+const handleBrandprecetag20=()=>{
+  if(precetag===false){
+   
+    handleprecenta()
+    presentages20()
+    
+}
+}
+const presentages20=()=>{
+  let prices=precetagdata.filter((el)=>{
+    if(el.discount<=20 && el.discount>=10){
+      return(el)
+    }
+    
+  })
+  setData(prices)
+  console.log(prices)
+}
+
+//10%
+const handleprecetag10 = () => {
+  setprecetag10(!precetag10);
+  handleBrandprecetag10()
+
+}
+const handleBrandprecetag10=()=>{
+  if(precetag===false){
+   
+    handleprecenta()
+    presentages10()
+    
+}
+}
+const presentages10=()=>{
+  let prices=precetagdata.filter((el)=>{
+    if(el.discount<=10 && el.discount>=0){
+      return(el)
+    }
+    
+  })
+  setData(prices)
+  console.log(prices)
+}
 
   return (
     <Box className="wrapper">
@@ -432,6 +498,27 @@ const presentages=()=>{
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
+                      checked={precetag30}
+                     onChange={handleprecetag30}
+                      
+                    />
+                    <label className="label">20% to 30%</label>
+                  </Box>
+
+                  <Box className="filter-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={precetag20}
+                     onChange={handleprecetag20}
+                      
+                    />
+                    <label className="label">10% to 20%</label>
+                  </Box>
+                  <Box className="filter-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={precetag10}
+                     onChange={handleprecetag10}
                       
                     />
                     <label className="label">upto 10%</label>
