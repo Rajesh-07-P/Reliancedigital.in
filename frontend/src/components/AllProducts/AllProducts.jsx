@@ -12,6 +12,7 @@ import {
   AccordionButton,
   AccordionPanel,
   Link,
+  Input,
 
 } from "@chakra-ui/react";
 import "./AllProducts.css";
@@ -42,7 +43,8 @@ const [precetag30,setprecetag30]=useState(false)
 const [precetag20,setprecetag20]=useState(false)
 const [precetag10,setprecetag10]=useState(false)
 const [precetagdata,setprecetagdata]=useState([])
-
+const [minvalues,setminvalues]=useState(0)
+const [maxvalues,setmaxvalues]=useState(500000)
 
  
 
@@ -70,6 +72,7 @@ let x=(last[last.length-1]);
       .then((res)=>setData(res.data))
 
       handleprecenta()
+      handleBrandAlls()
   },[])
  
 
@@ -212,7 +215,6 @@ const handleBrandAlls=async()=>{
 
 
 const handleprice=async()=>{
- 
   handleBrandAlls()
 
     handlefiletr()
@@ -367,11 +369,22 @@ const presentages10=()=>{
                 <AccordionPanel pb={4}>
 
                 <MultiRangeSlider
-      min={0}
-      max={150000}
+      min={Number(minvalues)}
+      max={Number(maxvalues)}
       onChange={({ min, max }) =>(`min = ${setminprice(min)}, max = ${setmaxprice(max)}`)}
+      
+  
     />
-   <Button onClick={handleprice}>GO</Button>
+    <Box style={{display:"flex"}}>
+      {/* <Input type={"number"} placeholder="min" onChange={(event)=>setminvalues(event.target.value)}/> */}
+      {/* <Input type={"number"} placeholder="min"/> */}
+      <input style={{border:'1px solid black',fontSize:'18px',height:'30px',width:'70px',marginLeft:'50px'}} type="text" placeholder="min"  onChange={(event)=>setminvalues(event.target.value)}></input>
+      <Text style={{marginLeft:'10px',marginRight:'10px'}}>To</Text>
+      <input style={{border:'1px solid black',fontSize:'18px',height:'30px',width:'70px'}} type="text" placeholder="max" onChange={(event)=>setmaxvalues(event.target.value)}></input>
+     
+      <Button style={{marginLeft:'10px',marginRight:'20px',backgroundColor:'#003380',color:'white',height:'30px',width:'70px'}} onClick={handleprice}>GO</Button>
+    </Box>
+   
                 </AccordionPanel>
               </AccordionItem>
               
