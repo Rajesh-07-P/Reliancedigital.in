@@ -1,0 +1,33 @@
+.address-div1 {
+  width: 90%;
+  background-color: rgb(231, 233, 233);
+  margin: 20px;
+}
+.address-btn {
+  margin-left: 20px;
+  width: 260px;
+  color: rgb(0, 51, 128);
+  border: 1px solid rgb(0, 51, 128);
+  cursor: pointer;
+  border-radius: 2px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.address-div1 p {
+  padding: 20px 20px;
+  font-weight: bold;
+}
+.address-div2 {
+  width: 90%;
+  background-color: rgb(231, 233, 233);
+  margin: 20px;
+}
+.address-div2 p {
+  padding: 20px 20px;
+  font-weight: bold;
+}
+
+/* .my-modal-class {
+        width: 1200px;
+      } */
