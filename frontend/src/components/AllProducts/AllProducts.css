@@ -124,6 +124,7 @@
 
 .filter-title {
   font-size: 14px;
+  margin-left: 35px;
 }
 
 .filter-checkbox {
@@ -132,10 +133,11 @@
   display: flex;
   align-items: center;
   margin-top: 5px;
+  margin-left: -150px;
 }
 
 .label {
-  margin-left: 5px;
+  margin-left: -170px;
 }
 
 .next:disabled {

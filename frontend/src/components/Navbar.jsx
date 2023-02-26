@@ -9,15 +9,17 @@ import { BiSearch } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios  from "axios";
-
+import { Authcontext } from "./AllContexts/AuthContext";
+import {useContext} from 'react'
 const Navbar = () => {
-  useEffect(() => {
-    const getItems = async () => {
-      let res = await axios({method:"get",url:"http://localhost:4500/cart",headers:{authorization:localStorage.getItem("token")}});
-      setitems(res.data.length);
-    };
-    getItems();
-  });
+  // useEffect(() => {
+  //   const getItems = async () => {
+  //     let res = await axios({method:"get",url:"http://localhost:4500/cart",headers:{authorization:localStorage.getItem("token")}});
+  //     console.log(res.data);
+  //   };
+  //   getItems();
+  // });
+  const { items, setItems } = useContext(Authcontext)
   return (
     <>
       <header className={styles.header}>
@@ -71,7 +73,7 @@ const Navbar = () => {
                     zIndex: 1,
                   }}
                 >
-                  {items}
+                 {items}
                 </div>
               </div>
               <li className={styles.headermainlinktext}>Cart</li>

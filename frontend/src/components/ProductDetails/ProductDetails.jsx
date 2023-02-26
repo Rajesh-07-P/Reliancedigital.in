@@ -25,24 +25,25 @@ const ProductDetails = () => {
   console.log(productdata);
   const location = useLocation();
 
-  const getItems = async () => {
-    let res = await axios({
-      method: "get",
-      url: "http://localhost:4500/cart",
-      headers: { authorization: localStorage.getItem("token") },
-    });
-    setItems(res.data.length);
-  };
+ 
 
 
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:4500${location.pathname}`)
+    axios.get(`http://localhost:4500${location.pathname}`)
       .then((res) => setData(res.data));
 
       getItems();
+      setItems(4)
   }, []);
+
+  
+  const getItems = async () => {
+    let res = await axios({method:"get",url:"http://localhost:4500/cart",headers:{authorization:localStorage.getItem("token")}});
+    console.log(res.data);
+  };
+
+ 
 
   const handleclick = async () => {
     let names = await axios({
