@@ -8,6 +8,7 @@ import Register from './components/Register';
 // Dashboard imports
 import CreateProduct from './components/dashboard/CreateProduct.jsx'
 import Product from './components/dashboard/Product';
+import { Order } from './components/dashboard/Order';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         {/* dashboard routes */}
         <Route path='/create-product' element={<CreateProduct />} />
         <Route path='/products' element={<Product />} />
+        <Route path='/orders' element={<Order/>}/>
         {/* if route is not exists */}
         <Route path='*' element={<NotFound />} />
       </Routes>
