@@ -40,7 +40,7 @@ const ProductDetails = () => {
 
   
   const getItems = async () => {
-    let res = await axios({method:"get",url:"http://localhost:4500/cart",headers:{authorization:localStorage.getItem("token")}});
+    let res = await axios({method:"get",url:"https://unusual-calf-threads.cyclic.app/cart",headers:{authorization:localStorage.getItem("token")}});
     setItems(res.data.length);
   };
 
@@ -49,7 +49,7 @@ const ProductDetails = () => {
   const handleclick = async () => {
     let names = await axios({
       method: "post",
-      url: "http://localhost:4500/cart/add",
+      url: "https://unusual-calf-threads.cyclic.app/cart/add",
       data: data,
       headers: { Authorization: localStorage.getItem("token") },
     }).then((response) => {
@@ -63,7 +63,7 @@ const ProductDetails = () => {
   const buynow=async()=>{
     let names = await axios({
       method: "post",
-      url: "http://localhost:4500/cart/add",
+      url: "https://unusual-calf-threads.cyclic.app/cart/add",
       data: data,
       headers: { Authorization: localStorage.getItem("token") },
     }).then((response) => {

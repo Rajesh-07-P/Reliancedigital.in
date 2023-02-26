@@ -68,7 +68,7 @@ let names=location.pathname
 const last = names.split("/")
 let x=(last[last.length-1]);
   useEffect(()=>{
-      axios.get(`http://localhost:4500/products?brand=${x}`)
+      axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=${x}`)
       .then((res)=>setData(res.data))
 
       handleprecenta()
@@ -140,7 +140,7 @@ const handleTecno = () => {
 const handleBrandAll=async()=>{
 
   if(All===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
    setData(res.data)
    settextdata('All')
    
@@ -151,7 +151,7 @@ const handleBrandAll=async()=>{
 const handleBrandXiaomi=async()=>{
 
   if(Xiaomi===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Xiaomi`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Xiaomi`);
    setData(res.data)
    settextdata('Xiaomi')
   }
@@ -159,7 +159,7 @@ const handleBrandXiaomi=async()=>{
 const handleBrandSamsung=async()=>{
 
   if(Samsung===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Samsung`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Samsung`);
    setData(res.data)
    settextdata('Samsung')
   }
@@ -167,7 +167,7 @@ const handleBrandSamsung=async()=>{
 
 const handleBrandRealme=async()=>{
  if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Realme`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Realme`);
    setData(res.data)
    settextdata('Realme')
   }
@@ -176,7 +176,7 @@ const handleBrandRealme=async()=>{
 const handleBrandApple=async()=>{
 
   if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Apple`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Apple`);
    setData(res.data)
    settextdata('Apple')
   }
@@ -185,7 +185,7 @@ const handleBrandApple=async()=>{
 const handleBrandOnePlus=async()=>{
 
   if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=One Plus`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=One Plus`);
    setData(res.data)
    settextdata('OnePlus')
   }
@@ -194,7 +194,7 @@ const handleBrandOnePlus=async()=>{
 const handleBrandOPPO=async()=>{
 
   if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=OPPO`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=OPPO`);
    setData(res.data)
    settextdata('OPPO')
   }
@@ -204,7 +204,7 @@ const handleBrandOPPO=async()=>{
 const handleBrandVIVO=async()=>{
 
   if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=VIVO`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=VIVO`);
    setData(res.data)
    settextdata('VIVO')
   }
@@ -214,7 +214,7 @@ const handleBrandVIVO=async()=>{
 const handleBrandTecno=async()=>{
 
   if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Tecno`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Tecno`);
    setData(res.data)
    settextdata('Tecno')
   }
@@ -224,7 +224,7 @@ const handleBrandTecno=async()=>{
 
 
 const handleBrandAlls=async()=>{
-     const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
+     const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
      setAlldata(res.data)
 
 }
@@ -256,7 +256,7 @@ const handleprecetag = () => {
 
 }
 const handleprecenta=async()=>{
-  const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
+  const res = await axios.get(`https://unusual-calf-threads.cyclic.app/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
   setprecetagdata(res.data)
 
 }
