@@ -75,9 +75,11 @@ const  Smartphones= () => {
       </div></a>
       </Carousel.Item>
       <Carousel.Item  >
+            <a href='/AllProducts/One Plus'>
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>
             <img width={"60%"}   style={{display:'block',margin:'auto',paddingTop:'12%',paddingBottom:'12%'}} src="https://www.reliancedigital.in/medias/Smartphone-Shop-By-Brands-OnePlus.jpg?context=bWFzdGVyfGltYWdlc3wyNjQyfGltYWdlL2pwZWd8aW1hZ2VzL2hjNi9oNTUvOTQ3Mzc1OTcwNzE2Ni5qcGd8ZjcyZDZmOGZmNDczNTY1ZTgwMDQ0Mzc1NmM3NWJlOGFiMzMyNGJjZmJjN2MyM2NhM2NmYTM4NzJlZGNmNjEzOQ" alt="" />
       </div>
+      </a>
       </Carousel.Item>
       <Carousel.Item  >
       <a href='/AllProducts/Realme'>
@@ -87,24 +89,32 @@ const  Smartphones= () => {
       </a>
       </Carousel.Item>
       <Carousel.Item  >
+            <a href='/AllProducts/VIVO'>
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>
             <img width={"60%"}   style={{display:'block',margin:'auto',paddingTop:'12%',paddingBottom:'12%'}} src="https://www.reliancedigital.in/medias/Vivo-Logo-final.jpg?context=bWFzdGVyfGltYWdlc3w1OTM2fGltYWdlL2pwZWd8aW1hZ2VzL2g2Yy9oNjQvOTA5ODk0MTQzMTgzOC5qcGd8MDZhNTdmMjE2Y2Q2ZGJjNzE2MzQ5N2JjZTkzZWQ5OGJhZGNhMGQ4MTkwOTNlMmIwYTE1NzJlNGIxZjhiZWZkNg" alt="" />
       </div>
+      </a>
       </Carousel.Item>
       <Carousel.Item  >
+            <a href='/AllProducts/Samsung'>
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>
             <img width={"60%"}   style={{display:'block',margin:'auto',paddingTop:'12%',paddingBottom:'12%'}} src="https://www.reliancedigital.in/medias/Samsung-Logo-final.jpg?context=bWFzdGVyfGltYWdlc3w0NTIyfGltYWdlL2pwZWd8aW1hZ2VzL2gxYy9oNDcvOTQ2MjEzNzg4MDYwNi5qcGd8ZmMxZGU1ODY3MGEzZjBkYzg2Y2EwNDRlZWE2ZjE2MmQ5NjY4MDQ4YjkzM2U1ZWNmOTkzNzEwNDgxNmI0NmUzYQ" alt="" />
       </div>
+      </a>
       </Carousel.Item>
       <Carousel.Item  >
+      <a href='/AllProducts/Xiaomi'>
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>
             <img width={"60%"}   style={{display:'block',margin:'auto',paddingTop:'12%',paddingBottom:'12%'}} src="https://www.reliancedigital.in/medias/Logo-Mi.jpg?context=bWFzdGVyfGltYWdlc3w2MDQ0fGltYWdlL2pwZWd8aW1hZ2VzL2gwOC9oNWIvOTI5MDUzNjY4MTUwMi5qcGd8ZTY0NzNkZjVlY2U3OWRlNGZiYmIxOTY4ZWFkYjQ5NmIzNTZmYzU3YjM4NGUyY2Q2NTU4NzlhMjllMWRjYThkMA" alt="" />
       </div>
+      </a>
       </Carousel.Item>
       <Carousel.Item  >
+      <a href='/AllProducts/OPPO'>
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>
             <img width={"60%"}   style={{display:'block',margin:'auto',paddingTop:'12%',paddingBottom:'12%'}} src="https://www.reliancedigital.in/medias/Shop-By-Brands-Oppo.jpg?context=bWFzdGVyfGltYWdlc3w1OTA0fGltYWdlL2pwZWd8aW1hZ2VzL2hlNS9oMjIvOTMzODQ4MDkxODU1OC5qcGd8ZDY0MWRlOTNhOThlMDNhZGIyYTc2MGI1NzczYTUzOGUyMGJhZDY4MTlkOTlhNGEyNWEyNzI2ZTQ1ZWE0ODJhZA" alt="" />
       </div>
+      </a>
       </Carousel.Item>
       <Carousel.Item  >
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>
@@ -117,9 +127,12 @@ const  Smartphones= () => {
       </div>
       </Carousel.Item>
       <Carousel.Item  >
+      
+      <a href='/AllProducts/Tecno'>
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>
             <img width={"60%"}   style={{display:'block',margin:'auto',paddingTop:'12%',paddingBottom:'12%'}} src="https://www.reliancedigital.in/medias/TECNO.jpg?context=bWFzdGVyfGltYWdlc3w2NjExfGltYWdlL2pwZWd8aW1hZ2VzL2hjYy9oMTQvOTg3MTE1MTMwMDYzOC5qcGd8YTFmYTY3NTMxNTZiY2NlNDc5MDE5NmI0NGUwYjRkMzkyNmZkYTk0MjE4OGI0Y2M3Nzg0N2FhNmNiYjUwNzAzYQ" alt="" />
       </div>
+      </a>
       </Carousel.Item>
       <Carousel.Item  >
        <div style={{height:'auto',border:'1px solid #e5e5e5'}}>

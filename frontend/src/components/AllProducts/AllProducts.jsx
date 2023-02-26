@@ -27,10 +27,11 @@ const AllProducts = () => {
 
   const [Realme,setRealme]=useState(false)
  const [Apple,setApple]=useState(false)
+const [All,setAll]=useState(false)
  const[minprice,setminprice]=useState(0)
  const[maxprice,setmaxprice]=useState(10000)
- console.log(minprice)
- console.log(maxprice)
+ const [Alldata,setAlldata]=useState([])
+
 
   //Loading Status
   const [isLoading, setisLoading] = React.useState(false);
@@ -54,14 +55,13 @@ const AllProducts = () => {
     const numDescending = [...data].sort((a, b) => a.price - b.price);
   console.log(numDescending)
   setData(numDescending)
-  console.log(data)
-  console.log("yes data")
+  
   }
 
   const highlow=()=>{
     const numDescending = [...data].sort((a, b) => b.price - a.price);
     setData(numDescending)
-    console.log(data)
+   
   }
 
 let names=location.pathname
@@ -70,10 +70,16 @@ let x=(last[last.length-1]);
   useEffect(()=>{
       axios.get(`http://localhost:4500/products?brand=${x}`)
       .then((res)=>setData(res.data))
-     
+
       
   },[])
  
+
+  const handleAll = () => {
+    setAll(!All);
+    handleBrandAll()
+  
+  }
 const handleRealme = () => {
   setRealme(!Realme);
   handleBrandRealme()
@@ -84,6 +90,14 @@ const handleApple = () => {
 
 }
 
+
+const handleBrandAll=async()=>{
+
+  if(All===false){
+     const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
+   setData(res.data)
+  }
+}
 const handleBrandRealme=async()=>{
  if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Realme`);
@@ -100,17 +114,32 @@ const handleBrandApple=async()=>{
 }
 
 
+const handleBrandAlls=async()=>{
+     const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
+     setAlldata(res.data)
 
-const handleprice=()=>{
- let prices=data.filter((el)=>{
-  if(el.price<=10000 && el.price>=8000){
-    return(el)
-  }
-  
-})
-setData(prices)
 }
-console.log(data)
+
+
+const handleprice=async()=>{
+  console.log(Alldata)
+  handleBrandAlls()
+
+
+    handlefiletr()
+ 
+}
+const handlefiletr=()=>{
+  let prices=Alldata.filter((el)=>{
+    if(el.price<=maxprice && el.price>=minprice){
+      return(el)
+    }
+    
+  })
+  setData(prices)
+ 
+}
+
   return (
     <Box className="wrapper">
       <>
@@ -143,11 +172,11 @@ console.log(data)
                 <AccordionPanel pb={4}>
 
                 <MultiRangeSlider
-      min={5000}
-      max={10000}
+      min={0}
+      max={150000}
       onChange={({ min, max }) =>(`min = ${setminprice(min)}, max = ${setmaxprice(max)}`)}
     />
-    <Button>Go</Button>
+   <Button onClick={handleprice}>GO</Button>
                 </AccordionPanel>
               </AccordionItem>
               
@@ -166,6 +195,14 @@ console.log(data)
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
+                <Box className="filter-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={All}
+                      onChange={handleAll}
+                    />
+                    <label className="label">All  Brand</label>
+                  </Box>
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
@@ -324,13 +361,13 @@ console.log(data)
               </AccordionItem>
               
             </Accordion>
-            <Button onClick={handleprice}>ADD CLICK</Button>
+            
           </Box>
           <Box className="products_wrapper">
           <Box background={'#fff'} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;" display={'flex'} justifyContent="space-between">
       <div>
       <Text fontSize={'23px'} fontWeight="bold" pt='15px' pl='15px'>APPLE MOBILES</Text>
-      <Text fontSize={'16px'}   pl='15px'>(Showing 1- {data.length} products of 175 products)</Text>
+      <Text fontSize={'16px'}   pl='15px'>(Showing 1- {data.length} products of 80 products)</Text>
       </div>
       <div style={{display:"flex"}}>
             <div >
