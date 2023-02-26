@@ -45,7 +45,7 @@ const [precetag10,setprecetag10]=useState(false)
 const [precetagdata,setprecetagdata]=useState([])
 const [minvalues,setminvalues]=useState(0)
 const [maxvalues,setmaxvalues]=useState(500000)
-
+const [textdata,settextdata]=useState('')
  
 
 
@@ -73,6 +73,12 @@ let x=(last[last.length-1]);
 
       handleprecenta()
       handleBrandAlls()
+      if(x==="One%20Plus"){
+        settextdata("OnePlus")
+      }else{
+        settextdata(x)
+      }
+      
   },[])
  
 
@@ -136,6 +142,8 @@ const handleBrandAll=async()=>{
   if(All===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
    setData(res.data)
+   settextdata('All')
+   
   }
 }
 
@@ -145,6 +153,7 @@ const handleBrandXiaomi=async()=>{
   if(Xiaomi===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Xiaomi`);
    setData(res.data)
+   settextdata('Xiaomi')
   }
 }
 const handleBrandSamsung=async()=>{
@@ -152,6 +161,7 @@ const handleBrandSamsung=async()=>{
   if(Samsung===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Samsung`);
    setData(res.data)
+   settextdata('Samsung')
   }
 }
 
@@ -159,6 +169,7 @@ const handleBrandRealme=async()=>{
  if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Realme`);
    setData(res.data)
+   settextdata('Realme')
   }
 }
 
@@ -167,6 +178,7 @@ const handleBrandApple=async()=>{
   if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Apple`);
    setData(res.data)
+   settextdata('Apple')
   }
 }
 
@@ -175,6 +187,7 @@ const handleBrandOnePlus=async()=>{
   if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=One Plus`);
    setData(res.data)
+   settextdata('OnePlus')
   }
 }
 
@@ -183,6 +196,7 @@ const handleBrandOPPO=async()=>{
   if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=OPPO`);
    setData(res.data)
+   settextdata('OPPO')
   }
 }
 
@@ -192,6 +206,7 @@ const handleBrandVIVO=async()=>{
   if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=VIVO`);
    setData(res.data)
+   settextdata('VIVO')
   }
 }
 
@@ -201,6 +216,7 @@ const handleBrandTecno=async()=>{
   if(Realme===false){
      const res = await axios.get(`http://localhost:4500/products?brand=Tecno`);
    setData(res.data)
+   settextdata('Tecno')
   }
 }
 
@@ -546,7 +562,7 @@ const presentages10=()=>{
           <Box className="products_wrapper">
           <Box background={'#fff'} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;" display={'flex'} justifyContent="space-between">
       <div>
-      <Text fontSize={'23px'} fontWeight="bold" pt='15px' pl='15px'>APPLE MOBILES</Text>
+      <Text fontSize={'23px'} fontWeight="bold" pt='15px' pl='15px'>{textdata} Mobiles</Text>
       <Text fontSize={'16px'}   pl='15px'>(Showing 1- {data.length} products of 80 products)</Text>
       </div>
       <div style={{display:"flex"}}>

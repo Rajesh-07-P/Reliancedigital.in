@@ -2,23 +2,23 @@ import React from "react";
 import Slider from "react-slick";
 import "./slick.css";
 import "./slick-theme.css";
-import styles from "./products.module.css";
-import products from "./data.js";
+import images from "./data.js";
 
 export default function BoatCarousel() {
   var settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     initialSlide: 0,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 5,
-          slidesToScroll: 5,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -34,7 +34,7 @@ export default function BoatCarousel() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -42,32 +42,11 @@ export default function BoatCarousel() {
   };
   return (
     <>
-      <div
-        style={{ width: "1200px", margin: "auto" }}
-        className="boatcontainer"
-      >
-        <Slider {...settings}>
-          {products.map((product, i) => {
-            return (
-              <div className={styles.container} key={i}>
-                <div>
-                  <img src={product.images[0]} />
-                </div>
-                <p>{product.title}</p>
-                <p>
-                  Deal price: <span> ₹{product.price}.00 </span>
-                </p>
-                <p>
-                  M.R.P: <span>₹{product.mrp}.00</span>
-                </p>
-                <p>
-                  You Save: {product.discount}%(₹{product.mrp - product.price})
-                </p>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {images.map((image, i) => (
+          <img src={image} key={i} />
+        ))}
+      </Slider>
     </>
   );
 }

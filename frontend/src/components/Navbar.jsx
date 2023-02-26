@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import i1 from "../assets/logo.jpeg";
 
 import styles from "./Navbarstyles.module.css";
@@ -7,9 +7,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+
+
   return (
     <>
       <header className={styles.header}>
@@ -25,54 +27,26 @@ const Navbar = () => {
           </li>
         </ul>
         <div className={styles.headermain}>
-          <Link to="/">
-            <img src={i1} className={styles.logo} />
-          </Link>
+          <img src={i1} className={styles.logo} />
           <div className={styles.searchinputdiv}>
             <input
               type="text"
               placeholder="Find your favourite products"
               className={styles.searchinput}
             />
-            <BiSearch className={styles.searchicon} />
+            <BiSearch />
           </div>
-          <div className={styles.headermainlink}>
-            <Link to="" className={styles.links}>
-              <MdLocationOn />
-              <p className={styles.headermainlinktext}>
-                {" "}
-                Deliver to Warangal 506370
-              </p>
-            </Link>
-            <Link to="/cart" className={styles.links}>
-              <div>
-                <FaShoppingCart />
-                <div
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                    borderRadius: "50%",
-                    backgroundColor: "black",
-                    color: "white",
-                    marginTop: "-25px",
-                    marginLeft: "15px",
-                    fontSize: "10px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    zIndex: 1,
-                  }}
-                >
-                  1
-                </div>
-              </div>
-              <li className={styles.headermainlinktext}>Cart</li>
-            </Link>
-            <Link to="/login" className={styles.links}>
-              <FaUser />
-              <li className={styles.headermainlinktext}>Login</li>
-            </Link>
-          </div>
+          <ul className={styles.headermainlink}>
+            <MdLocationOn />
+            <li className={styles.headermainlinktext}>
+              {" "}
+              Deliver to Warangal 506370
+            </li>
+            <FaShoppingCart />
+            <li className={styles.headermainlinktext}>Cart</li>
+            <FaUser />
+            <li className={styles.headermainlinktext}>Login</li>
+          </ul>
         </div>
       </header>
       <nav className={styles.navcontainer}>
