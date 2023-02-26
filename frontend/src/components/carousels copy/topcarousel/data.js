@@ -1,0 +1,11 @@
+const images = [
+ "https://www.reliancedigital.in/medias/OnePlus-11R-5G-Pre-book-CLP-Banner-21-02-2023.jpg?context=bWFzdGVyfGltYWdlc3w3NDgzMXxpbWFnZS9qcGVnfGltYWdlcy9oNzcvaDE4Lzk5NjUzMTA4Njk1MzQuanBnfGZiMjRiNDAxOTRiNDUyZGE2NzYwYTI3YTkwMjNmNDVmYmYwY2RhYTFhOWQwNGM0Yjc3ODFlMWQ0YjQ5ODkyNTc",
+ "https://www.reliancedigital.in/medias/One-Plus-11-CLP-Desktop.jpg?context=bWFzdGVyfGltYWdlc3w3MDM0OHxpbWFnZS9qcGVnfGltYWdlcy9oMDQvaGUwLzk5NjI2MTEzMTA2MjIuanBnfGIxYTZiNzVkMjE4ZmEyY2E1NDQxMWExYWZkNGUzYTQyZDNiZTMxMWI5YmM2NWJmMjhkZWQzNzFhMjQ1ZTk5NzY",
+ "https://www.reliancedigital.in/medias/OPPO-Reno8-T5G-CLP-Banner-10-02-2023.jpg?context=bWFzdGVyfGltYWdlc3w3MzIyOXxpbWFnZS9qcGVnfGltYWdlcy9oZDUvaDE3Lzk5NjA2NzQxMzE5OTguanBnfDA1MGZjYzliOTBjM2UxZmMyMjA3MDBmYWFiYmU4MzcyMjlmZmJjZGEyMzI4ZDk5M2NiODBmMGFmMGQ2NzE3NTI",
+ "https://www.reliancedigital.in/medias/Oppo-A78-5G-CLP-Banner-19-01-2023.jpg?context=bWFzdGVyfGltYWdlc3w2ODcwMXxpbWFnZS9qcGVnfGltYWdlcy9oZTgvaGRlLzk5NTA0Nzc1ODIzNjYuanBnfGZlN2ExZmE3YmZjYWQ1ODRjODI0ZDRkYjE4ODljZmU0OTQxMTk1ZTY5Y2MzOTQ0ZGMzY2IxNTYyNjRmMmM1NmI",
+ "https://www.reliancedigital.in/medias/Realme-Smartphones-CLP-Banner-05-01-2023.jpg?context=bWFzdGVyfGltYWdlc3w4MjM5NHxpbWFnZS9qcGVnfGltYWdlcy9oMjkvaGNhLzk5NDUxMDY4MDg4NjIuanBnfDI3ZDI3NmRlYzE1YzU2NmM5N2EwMWM5OWE4MDliNTlhMDE3ZDgwMzk0NjJhY2ZkNjMzMDFlNjNiNDM4ZTUyMGQ",
+ "https://www.reliancedigital.in/medias/Redmi-Smartphones-CLP-Banner-22-11-2022.jpg?context=bWFzdGVyfGltYWdlc3w5NjM2NXxpbWFnZS9qcGVnfGltYWdlcy9oNWYvaDBlLzk5NDA4NDM3NTc1OTguanBnfDgyNWI4ZWIxNzE4M2UxNjVhOWY0M2ZlMDJmZDkwNzMyZDY3NzJmMjFjZGYxNTAyYzFkYTk2MGQ2NDRkZDg2YWU"
+];
+
+
+export default images;

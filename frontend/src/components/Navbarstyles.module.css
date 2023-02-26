@@ -27,7 +27,6 @@
   display: flex;
   padding: 16px 0px 0px 48px;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .logo {
@@ -49,11 +48,10 @@
 
 .searchinput {
   width: 400px;
-  margin-left: 0px;
+  margin-left: 20px;
   outline: 0px;
   font-size: 16px;
   color: black;
-  height: 30px;
 }
 
 .headermainlink {
@@ -64,10 +62,6 @@
   list-style: none;
   padding: 4px 8px;
   font-size: 18px;
-}
-
-.links {
-  display: flex;
 }
 
 .headermainlinktext {
@@ -90,7 +84,6 @@
   color: #fff;
   padding: 0 2%;
   display: flex;
-  height: 40px;
   justify-content: space-between;
 }
 
@@ -112,7 +105,6 @@
 }
 
 .dropdowncontainer1 {
-  transition: all 1s;
   display: none;
   width: 96%;
   height: auto;
@@ -135,8 +127,11 @@
   background-image: url("https://www.reliancedigital.in/medias/Computers-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMzI5NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDQzL2g1Ny85NDU1NTQ0Nzk1MTY2LmpwZ3w3YThhZWU1NGYwZjY4ODA2Yjg1N2MyNzk4MTNlN2RkNGUxMjE1NjI5ZGQyMzAzOTk2NTMxZGIxOWMzOGM1NTJl");
 }
 
+.navlistitem:hover .dropdowncontainer1 {
+  display: block;
+}
+
 .dropdowncontainer {
-  transition: all 1s;
   display: none;
   width: 96%;
   height: auto;
@@ -154,14 +149,7 @@
   cursor: auto;
   z-index: 1;
 }
-
-.navlistitem:hover .dropdowncontainer1 {
-  transition: all 1s;
-  display: block;
-}
-
 .navlistitem:hover .dropdowncontainer {
-  transition: all 1s;
   display: block;
 }
 
@@ -183,71 +171,4 @@
 .dropdownlists ul > li:first-child {
   font-weight: 600;
   padding: 6px 16px;
-}
-
-.icon {
-  display: none;
-  color: white;
-}
-
-@media screen and (max-width: 600px) {
-  .header {
-    height: 90px;
-  }
-  .headermain {
-    padding-left: 0px;
-    padding: 20px;
-    justify-content: space-between;
-    padding: 10px 15px 0px 15px;
-  }
-  .iconcontainer {
-    display: flex;
-    gap: 15px;
-  }
-  .icon {
-    display: block;
-    font-size: 25px;
-  }
-  .logo {
-    width: 200px;
-    height: 43px;
-    padding-top: 5px;
-  }
-  .searchinputdiv {
-    max-width: 400px;
-    height: 30px;
-  }
-  .searchinput {
-    height: 18px;
-    width: 300px;
-    flex-grow: 2;
-    margin-left: 5px;
-  }
-  .searchicon {
-    width: 30px;
-  }
-  .headerlink {
-    display: none;
-  }
-  .navlist {
-    display: none;
-  }
-  .headermainlinktext {
-    display: none;
-  }
-  .iconcontainer {
-    order: 1;
-  }
-
-  .searchinputdiv {
-    order: 3;
-  }
-  .headermainlink {
-    order: 2;
-  }
-  .headermainlink {
-    gap: 10px;
-    padding-top: 10px;
-    font-size: 20px;
-  }
 }

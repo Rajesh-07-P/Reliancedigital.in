@@ -1,14 +1,17 @@
 import "./App.css";
-import Footer from "./components/footer/Footer";
 import Navbar from "./components/Navbar";
 import AllRoutes from "./pages/AllRoutes";
+import MultiRangeSlider from './components/multiRangeSlider/MultiRangeSlider'
+import { useState } from "react";
 
 function App() {
+
   return (
     <div>
+   
+  
       <Navbar/>
       <AllRoutes />
-      <Footer/>
     </div>
   );
 }
