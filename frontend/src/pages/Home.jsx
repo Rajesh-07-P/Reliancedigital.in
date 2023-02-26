@@ -3,10 +3,11 @@ import SimpleSlider from "../components/carousels/topcarousel/SimpleSlider"
 import AppleCarousel from "../components/carousels/apple/AppleCarousel";
 import BoatCarousel from "../components/carousels/boatproducts/BoatCarousel";
 import Mid from "../components/carousels/midcarousel/Mid";
-import Summersale from "../components/carousels/SummersaleCarousel/boatproducts/Summersale";
-import SimpleSlider from "../components/carousels/topcarousel/SimpleSlider";
+// import Summersale from "../components/carousels/SummersaleCarousel/boatproducts/Summersale";
+// import SimpleSlider from "../components/carousels/topcarousel/SimpleSlider";
 import TvCarousel from "../components/carousels/tv/TvCarousel";
 import styles from "./Home.module.css";
+import Summersale from "../components/carousels/SummersaleCarousel/Summersale";
 
 const Home = () => {
   return (
@@ -15,8 +16,6 @@ const Home = () => {
       <div className={styles.boatoffers}>
         <h2 >Special Offers on Boat</h2>
         <div >View all</div>
-        <h2>Special Offers on Boat</h2>
-        <div>View all</div>
       </div>
       <BoatCarousel />
       <div className={`${styles.boatoffers} ${styles.boatofferssmall}`}>
