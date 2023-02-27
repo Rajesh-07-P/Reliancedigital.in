@@ -20,7 +20,7 @@ const Register = () => {
             mobile
         }
         // console.log(payload)
-        fetch("http://localhost:4500/admin/register",
+        fetch("https://unusual-calf-threads.cyclic.app/admin/register",
             {
                 method: "POST",
                 body: JSON.stringify(payload),
@@ -51,23 +51,23 @@ const Register = () => {
                 <div className={style.form}>
                     <div>
                         <label htmlFor="name">Name*</label><br />
-                        <input type="text" placeholder='Enter Your Name' required value={name} onChange={(e) => setName([...e, e.target.value])} />
+                        <input type="text" placeholder='Enter Your Name' required onChange={(e) => setName([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="mobile">Mobile No.*</label><br />
-                        <input type="number" maxLength={10} placeholder='Enter Your Number' value={mobile} onChange={(e) => setMobile([...e, e.target.value])} />
+                        <input type="number" maxLength={10} placeholder='Enter Your Number'  onChange={(e) => setMobile([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="email">E-Mail*</label><br />
-                        <input type="email" placeholder='Enter Your Email Address' required value={email} onChange={(e) => setEmail([...e, e.target.value])} />
+                        <input type="email" placeholder='Enter Your Email Address' required  onChange={(e) => setEmail([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="password">Create Password*</label><br />
-                        <input type="number" placeholder='Create Password' maxLength={10} required value={pass} onChange={(e) => setPass([...e, e.target.value])} />
+                        <input type="number" placeholder='Create Password' maxLength={10} required  onChange={(e) => setPass([...e, e.target.value])} />
                     </div>
                     <div>
                         <label htmlFor="gender">Gender*</label><br />
-                        <input type="text" placeholder='Enter Your Gender' required maxLength={8} value={gender} onChange={(e) => setGender([...e, e.target.value])} />
+                        <input type="text" placeholder='Enter Your Gender' required maxLength={8} onChange={(e) => setGender([...e, e.target.value])} />
                     </div>
                     <button onClick={handleSubmit}>Register</button><br />
                     <span>Already Registered,<a href="/login" className={style.alrdrgstr}>Login here</a></span>

@@ -6,7 +6,7 @@ export const Order = () => {
     const [order, setOrder] = useState("")
 
     const getData = () => {
-        fetch("http://localhost:4500/cart/", {
+        fetch("https://unusual-calf-threads.cyclic.app/cart/", {
             headers: {
                 Authorization: localStorage.getItem("token"),
             },
@@ -37,8 +37,8 @@ export const Order = () => {
                 </thead>
                 <tbody>
                     {order ? (
-                        order.map((el) => (
-                            <tr>
+                        order.map((el,i) => (
+                            <tr key={i}>
                                 <td data-label="Brand">{el.brand}</td>
                                 <td data-label="Name">{el.title}</td>
                                 <td data-label="Qty">{el.quantity}</td>

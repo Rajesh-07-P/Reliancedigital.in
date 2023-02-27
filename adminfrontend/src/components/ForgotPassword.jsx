@@ -10,7 +10,7 @@ const ForgotPassword = () => {
             password,
         }
         // console.log(payload)
-        fetch("http://localhost:4500/admin/forgot-password",
+        fetch("https://unusual-calf-threads.cyclic.app/admin/forgot-password",
             {
                 method: "PATCH",
                 body: JSON.stringify(payload),

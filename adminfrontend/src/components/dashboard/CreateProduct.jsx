@@ -16,7 +16,7 @@ const CreateProduct = () => {
     const handleSubmit = () => {
         const payload = { title, category, images, brand, quanity, mrp, price, discount }
         // console.log(payload)
-        fetch("http://localhost:4500/products/addproduct",
+        fetch("https://unusual-calf-threads.cyclic.app/products/addproduct",
             {
                 method: "POST",
                 body: JSON.stringify(payload),

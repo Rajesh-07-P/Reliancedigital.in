@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import styles from '../styles/Login.module.css'
+import { useNavigate } from "react-router-dom";
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPass] = useState("")
-
+    const navigate = useNavigate();
     const handleSubmit = () => {
         const payload = {
             email,
             password,
         }
         // console.log(payload)
-        fetch("http://localhost:4500/admin/login",
+        fetch("https://unusual-calf-threads.cyclic.app/admin/login",
             {
                 method: "POST",
                 body: JSON.stringify(payload),
@@ -21,7 +22,7 @@ const Login = () => {
                 localStorage.setItem("token", res.token);
             })
             .catch(err => console.log(err))
-
+       navigate('/orders')
     }
     return (
         <div>
@@ -30,11 +31,11 @@ const Login = () => {
             <div className={styles.form}>
                 <div>
                     <label htmlFor="email">E-Mail*</label><br />
-                    <input type="email" placeholder='Enter Email Address' required value={email} onChange={(e) => setEmail([...e,e.target.value])} />
+                    <input type="email" placeholder='Enter Email Address' required onChange={(e) => setEmail([...e, e.target.value])} />
                 </div>
                 <div>
                     <label htmlFor="password">Password*</label><br />
-                    <input type="number" placeholder='Enter Password' maxLength={10} required value={password} onChange={(e) => setPass([...e,e.target.value])} />
+                    <input type="number" placeholder='Enter Password' maxLength={10} required  onChange={(e) => setPass([...e, e.target.value])} />
                 </div>
                 <button onClick={handleSubmit}>Login</button>
                 <div className={styles.alrdrgstr}>

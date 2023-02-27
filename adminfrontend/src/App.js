@@ -13,9 +13,7 @@ import { Order } from './components/dashboard/Order';
 function App() {
   return (
     <div className="App">
-
       <Routes>
-
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/forgotpassword' element={<ForgotPassword />} />
