@@ -4,16 +4,12 @@ import Footer from "./components/footer/Footer";
 import Navbar from "./components/Navbar";
 import AllRoutes from "./pages/AllRoutes";
 
-
 function App() {
-
   return (
     <div>
-      <Navbar/>
-      {/* <Cart/> */}
+      <Navbar />
       <AllRoutes />
-      {/* <h1>hello</h1> */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }

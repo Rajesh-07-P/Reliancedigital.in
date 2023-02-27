@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import i1 from "../assets/logo.jpeg";
 
 import styles from "./Navbarstyles.module.css";
@@ -8,8 +8,16 @@ import { MdLocationOn } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import axios  from "axios";
 
 const Navbar = () => {
+  useEffect(() => {
+    const getItems = async () => {
+      let res = await axios({method:"get",url:"http://localhost:4500/cart",headers:{authorization:localStorage.getItem("token")}});
+      setitems(res.data.length);
+    };
+    getItems();
+  });
   return (
     <>
       <header className={styles.header}>
@@ -47,7 +55,7 @@ const Navbar = () => {
             <Link to="/cart" className={styles.links}>
               <div>
                 <FaShoppingCart />
-                {/* <div
+                <div
                   style={{
                     width: "15px",
                     height: "15px",
@@ -63,8 +71,8 @@ const Navbar = () => {
                     zIndex: 1,
                   }}
                 >
-                  1
-                </div> */}
+                  {items}
+                </div>
               </div>
               <li className={styles.headermainlinktext}>Cart</li>
             </Link>
