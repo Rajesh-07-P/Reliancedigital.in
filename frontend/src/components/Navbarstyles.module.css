@@ -1,8 +1,18 @@
+.main{
+  position: sticky;
+  z-index: 100;
+  top:0px;
+  right: 0px;
+  left: 0px;
+}
 .header {
   height: 90px;
   width: 100%;
   background-color: #e42529;
   font-weight: 600;
+  /* position: relative; */
+  /* top: 100px; */
+  /* z-index: 10; */
 }
 
 .headerlink {
@@ -27,7 +37,7 @@
   display: flex;
   padding: 16px 0px 0px 48px;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .logo {
@@ -83,6 +93,7 @@
 }
 
 .navcontainer {
+  z-index: 10px;
 }
 
 .navlist {
@@ -199,6 +210,7 @@
     padding: 20px;
     justify-content: space-between;
     padding: 10px 15px 0px 15px;
+      flex-wrap: wrap;
   }
   .iconcontainer {
     display: flex;

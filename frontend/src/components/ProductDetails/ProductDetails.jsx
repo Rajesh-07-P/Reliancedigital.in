@@ -16,45 +16,79 @@ import { useEffect, useContext } from "react";
 import { Authcontext } from "../AllContexts/AuthContext";
 
 import { useHistory, useLocation, useNavigate } from "react-router-dom";
+import { addcartitems, getcartitems } from "../../Redux/cart/cart.actions";
+import { useDispatch } from "react-redux";
 const ProductDetails = () => {
   const { items, setItems } = useContext(Authcontext);
   const navigate = useNavigate();
   const [data, setData] = React.useState([]);
   const [images, setimages] = React.useState([]);
   const { productdata, setproductdata } = useContext(Authcontext);
+  const dispatch = useDispatch();
   console.log(productdata);
   const location = useLocation();
 
   const getItems = async () => {
     let res = await axios({
       method: "get",
-      url: "http://localhost:4500/cart",
+      url: "https://unusual-calf-threads.cyclic.app/cart",
       headers: { authorization: localStorage.getItem("token") },
     });
     setItems(res.data.length);
   };
 
-
-
   useEffect(() => {
     axios
-      .get(`http://localhost:4500${location.pathname}`)
+      .get(`https://unusual-calf-threads.cyclic.app${location.pathname}`)
       .then((res) => setData(res.data));
 
-      getItems();
+    getItems();
   }, []);
 
   const handleclick = async () => {
-    let names = await axios({
-      method: "post",
-      url: "http://localhost:4500/cart/add",
-      data: data,
-      headers: { Authorization: localStorage.getItem("token") },
-    }).then((response) => {
-      console.log(response);
-    });
-    console.log(names);
+    // let names = await axios({
+    //   method: "post",
+    //   url: "https://unusual-calf-threads.cyclic.app/cart/add",
+    //   data: data,
+    //   headers: { Authorization: localStorage.getItem("token") },
+    // }).then((response) => {
+    //   console.log(response);
+    // });
+    // console.log(names);
+    // console.log(cartData);
+    const token = localStorage.getItem("token");
+    if (token) {
+      data.quantity++;
+      dispatch(addcartitems(data));
+      alert("item added to cart");
+    } else {
+      alert("please login");
+      navigate("/login");
+    }
   };
+
+  const buynow = async () => {
+    // let names = await axios({
+    //   method: "post",
+    //   url: "https://unusual-calf-threads.cyclic.app/cart/add",
+    //   data: data,
+    //   headers: { Authorization: localStorage.getItem("token") },
+    // }).then((response) => {
+    //   console.log(response);
+    // });
+
+    data.quantity++;
+    dispatch(addcartitems(data));
+    navigate("/cart");
+  };
+
+  // useEffect(() => {
+  //   getprod();
+  // }, []);
+
+  // const getprod = async () => {
+  //   await dispatch(getcartitems());
+  // };
 
   if (data.length !== 0) {
     return (
@@ -286,6 +320,7 @@ const ProductDetails = () => {
                     color={"white"}
                     bg={"#fc6027"}
                     style={{ width: "50%" }}
+                    onClick={buynow}
                   >
                     BUY NOW
                   </Button>

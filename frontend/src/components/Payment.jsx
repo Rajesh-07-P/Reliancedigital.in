@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Button, Input, Radio, RadioGroup, Stack } from "@chakra-ui/react";
 import "./Payment.css";
+import { useDispatch } from "react-redux";
+import { addcartitems, deletecartitems } from "../Redux/cart/cart.actions";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const [value, setValue] = React.useState("1");
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [address, setAddress] = useState([]);
+  const dispatch = useDispatch();
+  const navigate=useNavigate();
 
-  const handleClick = () => {
+  const handleClick = async() => {
+    cart.forEach(async(el)=>{
+      await dispatch(deletecartitems(el._id));
+    })
     alert("your order has been placed");
+    navigate("/");
   };
   const fetchcart = () => {
-    fetch("http://localhost:4500/cart", {
+    fetch("https://unusual-calf-threads.cyclic.app/cart", {
       headers: { Authorization: localStorage.getItem("token") },
     })
       .then((res) => res.json())
@@ -30,7 +39,7 @@ const Payment = () => {
   };
 
   const fetchAddress = () => {
-    fetch("http://localhost:4500/address", {
+    fetch("https://unusual-calf-threads.cyclic.app/address", {
       headers: { Authorization: localStorage.getItem("token") },
     })
       .then((res) => res.json())
@@ -108,21 +117,27 @@ const Payment = () => {
       </div>
       {/* -------------------------- */}
       <div className="payment">
-        <div >
-          <RadioGroup
-            onChange={setValue}
-            value={value}
-            
-          >
+        <div>
+          <RadioGroup onChange={setValue} value={value}>
             <Stack direction="column" gap="20px">
-              <Radio style={{ border: "1px solid black"}} value="1">
+              <Radio style={{ border: "1px solid black" }} value="1">
                 Credit Card
               </Radio>
-              <Radio style={{ border: "1px solid black"}} value="2">Debit Card</Radio>
-              <Radio style={{ border: "1px solid black"}} value="3">Credit Card EMI</Radio>
-              <Radio style={{ border: "1px solid black"}} value="4">Net Banking</Radio>
-              <Radio style={{ border: "1px solid black"}} value="5">UPI</Radio>
-              <Radio style={{ border: "1px solid black"}} value="6">Wallet</Radio>
+              <Radio style={{ border: "1px solid black" }} value="2">
+                Debit Card
+              </Radio>
+              <Radio style={{ border: "1px solid black" }} value="3">
+                Credit Card EMI
+              </Radio>
+              <Radio style={{ border: "1px solid black" }} value="4">
+                Net Banking
+              </Radio>
+              <Radio style={{ border: "1px solid black" }} value="5">
+                UPI
+              </Radio>
+              <Radio style={{ border: "1px solid black" }} value="6">
+                Wallet
+              </Radio>
             </Stack>
           </RadioGroup>
         </div>

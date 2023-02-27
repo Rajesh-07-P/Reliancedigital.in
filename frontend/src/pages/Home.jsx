@@ -11,7 +11,7 @@ import Summersale from "../components/carousels/SummersaleCarousel/Summersale";
 
 const Home = () => {
   return (
-    <div>
+    <div className={styles.homecontainer}>
       <SimpleSlider />
       <div className={styles.boatoffers}>
         <h2 >Special Offers on Boat</h2>

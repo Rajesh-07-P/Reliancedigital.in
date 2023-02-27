@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import "./Cart.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deletecartitems } from "../Redux/cart/cart.actions";
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const dispatch = useDispatch();
   const handleAdd = (el) => {
     const updatedEl = {
       ...el,
       quantity: el.quantity + 1, // increment quantity by 1
     };
-    fetch(`http://localhost:7700/cart/update/${el._id}`, {
+    fetch(`https://unusual-calf-threads.cyclic.app/cart/update/${el._id}`, {
       method: "PATCH",
       body: JSON.stringify(updatedEl),
       headers: {
@@ -32,7 +35,7 @@ const Cart = () => {
       ...el,
       quantity: el.quantity - 1, // increment quantity by 1
     };
-    fetch(`http://localhost:7700/cart/update/${el._id}`, {
+    fetch(`https://unusual-calf-threads.cyclic.app/cart/update/${el._id}`, {
       method: "PATCH",
       body: JSON.stringify(updatedEl),
       headers: {
@@ -50,21 +53,22 @@ const Cart = () => {
       .catch((err) => console.log(err));
   };
 
-  const handleDelete = (el) => {
-    fetch(`http://localhost:7700/cart/delete/${el._id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: localStorage.getItem("token"),
-        "Content-Type": "application/json", // add this header if needed
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        fetchcart(); // assuming this function fetches the updated cart
-        // localStorage.setItem("token", data.tokenID);
-      })
-      .catch((err) => console.log(err));
+  const handleDelete =async(el) => {
+    // fetch(`https://unusual-calf-threads.cyclic.app/cart/delete/${el._id}`, {
+    //   method: "DELETE",
+    //   headers: {
+    //     Authorization: localStorage.getItem("token"),
+    //     "Content-Type": "application/json", // add this header if needed
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     // localStorage.setItem("token", data.tokenID);
+    //   })
+    //   .catch((err) => console.log(err));
+    await dispatch(deletecartitems(el._id));
+    fetchcart(); // assuming this function fetches the updated cart
   };
 
   useEffect(() => {
@@ -72,7 +76,7 @@ const Cart = () => {
   }, []);
 
   const fetchcart = () => {
-    fetch("http://localhost:4500/cart", {
+    fetch("https://unusual-calf-threads.cyclic.app/cart", {
       headers: { Authorization: localStorage.getItem("token") },
     })
       .then((res) => res.json())
