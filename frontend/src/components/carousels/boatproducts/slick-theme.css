@@ -74,7 +74,7 @@
 
 .boatcontainer .slick-prev {
   left: -52px;
-  z-index: 1;
+  /* z-index: 1; */
 }
 [dir="rtl"] .slick-prev {
   right: -25px;

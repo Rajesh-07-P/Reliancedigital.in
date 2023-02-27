@@ -1,3 +1,8 @@
+/* .homecontainer{
+  position: relative;
+  top: 130px;
+} */
+
 .boatoffers {
   display: flex;
   justify-content: flex-start;

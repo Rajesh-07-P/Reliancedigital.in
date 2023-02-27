@@ -13,346 +13,324 @@ import {
   AccordionPanel,
   Link,
   Input,
-
 } from "@chakra-ui/react";
 import "./AllProducts.css";
 import { Authcontext } from "../AllContexts/AuthContext";
-import { useEffect,useContext } from "react";
-import axios from 'axios'
-import { useNavigate,useLocation } from "react-router-dom";
-import MultiRangeSlider from '../multiRangeSlider/MultiRangeSlider'
+import { useEffect, useContext } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
+import MultiRangeSlider from "../multiRangeSlider/MultiRangeSlider";
+import Loading from "../Loading";
 const AllProducts = () => {
   const navigate = useNavigate();
-  const location = useLocation()
-  const { productdata, setproductdata} = useContext(Authcontext)
+  const location = useLocation();
+  const { productdata, setproductdata } = useContext(Authcontext);
 
-  const [Realme,setRealme]=useState(false)
- const [Apple,setApple]=useState(false)
-const [All,setAll]=useState(false)
- const[minprice,setminprice]=useState(0)
- const[maxprice,setmaxprice]=useState(10000)
- const [Alldata,setAlldata]=useState([])
-const [Xiaomi,setXiaomi]=useState(false)
-const [Samsung,setSamsung]=useState(false)
-const [OnePlus,setOnePlus]=useState(false)
-const [OPPO,setOPPO]=useState(false)
-const [VIVO,setVIVO]=useState(false)
-const [Tecno,setTecno]=useState(false)
-const [precetag,setprecetag]=useState(false)
-const [precetag30,setprecetag30]=useState(false)
-const [precetag20,setprecetag20]=useState(false)
-const [precetag10,setprecetag10]=useState(false)
-const [precetagdata,setprecetagdata]=useState([])
-const [minvalues,setminvalues]=useState(0)
-const [maxvalues,setmaxvalues]=useState(500000)
+  const [Realme, setRealme] = useState(false);
+  const [Apple, setApple] = useState(false);
+  const [All, setAll] = useState(false);
+  const [minprice, setminprice] = useState(0);
+  const [maxprice, setmaxprice] = useState(10000);
+  const [Alldata, setAlldata] = useState([]);
+  const [Xiaomi, setXiaomi] = useState(false);
+  const [Samsung, setSamsung] = useState(false);
+  const [OnePlus, setOnePlus] = useState(false);
+  const [OPPO, setOPPO] = useState(false);
+  const [VIVO, setVIVO] = useState(false);
+  const [Tecno, setTecno] = useState(false);
+  const [precetag, setprecetag] = useState(false);
+  const [precetag30, setprecetag30] = useState(false);
+  const [precetag20, setprecetag20] = useState(false);
+  const [precetag10, setprecetag10] = useState(false);
+  const [precetagdata, setprecetagdata] = useState([]);
+  const [minvalues, setminvalues] = useState(0);
+  const [maxvalues, setmaxvalues] = useState(500000);
+  const [textdata, settextdata] = useState("");
 
- 
-
-
- 
-  const [data,setData]=React.useState([])
-  const lowhigh=()=>{
+  const [data, setData] = React.useState([]);
+  const lowhigh = () => {
     const numDescending = [...data].sort((a, b) => a.price - b.price);
-  console.log(numDescending)
-  setData(numDescending)
-  
-  }
+    console.log(numDescending);
+    setData(numDescending);
+  };
 
-  const highlow=()=>{
+  const highlow = () => {
     const numDescending = [...data].sort((a, b) => b.price - a.price);
-    setData(numDescending)
-   
-  }
+    setData(numDescending);
+  };
 
-let names=location.pathname
-const last = names.split("/")
-let x=(last[last.length-1]);
-  useEffect(()=>{
-      axios.get(`http://localhost:4500/products?brand=${x}`)
-      .then((res)=>setData(res.data))
+  let names = location.pathname;
+  const last = names.split("/");
+  let x = last[last.length - 1];
+  useEffect(() => {
+    axios
+      .get(`https://unusual-calf-threads.cyclic.app/products?brand=${x}`)
+      .then((res) => setData(res.data));
 
-      handleprecenta()
-      handleBrandAlls()
-  },[])
- 
+    handleprecenta();
+    handleBrandAlls();
+          if (x === "One%20Plus") {
+            settextdata("OnePlus");
+          } else {
+            settextdata(x);
+          }
+  }, []);
 
   const handleAll = () => {
     setAll(!All);
-    handleBrandAll()
-  
-  }
+    handleBrandAll();
+  };
 
-  
   const handleXiaomi = () => {
     setXiaomi(!Xiaomi);
-    handleBrandXiaomi()
-  
-  }
+    handleBrandXiaomi();
+  };
 
   const handleSamsung = () => {
     setSamsung(!Samsung);
-    handleBrandSamsung()
-  
-  }
-  
-const handleRealme = () => {
-  setRealme(!Realme);
-  handleBrandRealme()
-}
-const handleOPPO = () => {
-  setOPPO(!OPPO);
-  handleBrandOPPO()
+    handleBrandSamsung();
+  };
 
-}
+  const handleRealme = () => {
+    setRealme(!Realme);
+    handleBrandRealme();
+  };
+  const handleOPPO = () => {
+    setOPPO(!OPPO);
+    handleBrandOPPO();
+  };
 
-const handleOnePlus = () => {
-  setOnePlus(!OnePlus);
-  handleBrandOnePlus()
+  const handleOnePlus = () => {
+    setOnePlus(!OnePlus);
+    handleBrandOnePlus();
+  };
 
-}
+  const handleApple = () => {
+    setApple(!Apple);
+    handleBrandApple();
+  };
 
-const handleApple = () => {
-  setApple(!Apple);
-  handleBrandApple()
+  const handleVIVO = () => {
+    setVIVO(!VIVO);
+    handleBrandVIVO();
+  };
 
-}
+  const handleTecno = () => {
+    setTecno(!Tecno);
+    handleBrandTecno();
+  };
 
-
-const handleVIVO = () => {
-  setVIVO(!VIVO);
-  handleBrandVIVO()
-
-}
-
-const handleTecno = () => {
-  setTecno(!Tecno);
-  handleBrandTecno()
-
-}
-
-
-const handleBrandAll=async()=>{
-
-  if(All===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
-   setData(res.data)
-  }
-}
-
-
-const handleBrandXiaomi=async()=>{
-
-  if(Xiaomi===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Xiaomi`);
-   setData(res.data)
-  }
-}
-const handleBrandSamsung=async()=>{
-
-  if(Samsung===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Samsung`);
-   setData(res.data)
-  }
-}
-
-const handleBrandRealme=async()=>{
- if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Realme`);
-   setData(res.data)
-  }
-}
-
-const handleBrandApple=async()=>{
-
-  if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Apple`);
-   setData(res.data)
-  }
-}
-
-const handleBrandOnePlus=async()=>{
-
-  if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=One Plus`);
-   setData(res.data)
-  }
-}
-
-const handleBrandOPPO=async()=>{
-
-  if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=OPPO`);
-   setData(res.data)
-  }
-}
-
-
-const handleBrandVIVO=async()=>{
-
-  if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=VIVO`);
-   setData(res.data)
-  }
-}
-
-
-const handleBrandTecno=async()=>{
-
-  if(Realme===false){
-     const res = await axios.get(`http://localhost:4500/products?brand=Tecno`);
-   setData(res.data)
-  }
-}
-
-
-
-
-const handleBrandAlls=async()=>{
-     const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
-     setAlldata(res.data)
-
-}
-
-
-const handleprice=async()=>{
-  handleBrandAlls()
-
-    handlefiletr()
- 
-}
-const handlefiletr=()=>{
-  let prices=Alldata.filter((el)=>{
-    if(el.price<=maxprice && el.price>=minprice){
-      return(el)
+  const handleBrandAll = async () => {
+    if (All === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`
+      );
+      setData(res.data);
     }
-    
-  })
-  setData(prices)
- 
-}
+  };
 
-
-
-
-const handleprecetag = () => {
-  setprecetag(!precetag);
-  handleBrandprecetag()
-
-}
-const handleprecenta=async()=>{
-  const res = await axios.get(`http://localhost:4500/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`);
-  setprecetagdata(res.data)
-
-}
-const handleBrandprecetag=()=>{
-  if(precetag===false){
-   
-    handleprecenta()
-    presentages()
-    
-}
-}
-const presentages=()=>{
-  let prices=precetagdata.filter((el)=>{
-    if(el.discount<=40 && el.discount>=30){
-      return(el)
+  const handleBrandXiaomi = async () => {
+    if (Xiaomi === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=Xiaomi`
+      );
+      setData(res.data);
     }
-    
-  })
-  setData(prices)
-  console.log(prices)
-}
-//30%
-const handleprecetag30 = () => {
-  setprecetag30(!precetag30);
-  handleBrandprecetag30()
-
-}
-const handleBrandprecetag30=()=>{
-  if(precetag===false){
-   
-    handleprecenta()
-    presentages30()
-    
-}
-}
-const presentages30=()=>{
-  let prices=precetagdata.filter((el)=>{
-    if(el.discount<=30 && el.discount>=20){
-      return(el)
+  };
+  const handleBrandSamsung = async () => {
+    if (Samsung === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=Samsung`
+      );
+      setData(res.data);
     }
-    
-  })
-  setData(prices)
-  console.log(prices)
-}
+  };
 
-//20%
-const handleprecetag20 = () => {
-  setprecetag20(!precetag20);
-  handleBrandprecetag20()
-
-}
-const handleBrandprecetag20=()=>{
-  if(precetag===false){
-   
-    handleprecenta()
-    presentages20()
-    
-}
-}
-const presentages20=()=>{
-  let prices=precetagdata.filter((el)=>{
-    if(el.discount<=20 && el.discount>=10){
-      return(el)
+  const handleBrandRealme = async () => {
+    if (Realme === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=Realme`
+      );
+      setData(res.data);
     }
-    
-  })
-  setData(prices)
-  console.log(prices)
-}
+  };
 
-//10%
-const handleprecetag10 = () => {
-  setprecetag10(!precetag10);
-  handleBrandprecetag10()
-
-}
-const handleBrandprecetag10=()=>{
-  if(precetag===false){
-   
-    handleprecenta()
-    presentages10()
-    
-}
-}
-const presentages10=()=>{
-  let prices=precetagdata.filter((el)=>{
-    if(el.discount<=10 && el.discount>=0){
-      return(el)
+  const handleBrandApple = async () => {
+    if (Realme === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=Apple`
+      );
+      setData(res.data);
     }
-    
-  })
-  setData(prices)
-  console.log(prices)
-}
+  };
+
+  const handleBrandOnePlus = async () => {
+    if (Realme === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=One Plus`
+      );
+      setData(res.data);
+    }
+  };
+
+  const handleBrandOPPO = async () => {
+    if (Realme === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=OPPO`
+      );
+      setData(res.data);
+    }
+  };
+
+  const handleBrandVIVO = async () => {
+    if (Realme === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=VIVO`
+      );
+      setData(res.data);
+    }
+  };
+
+  const handleBrandTecno = async () => {
+    if (Realme === false) {
+      const res = await axios.get(
+        `https://unusual-calf-threads.cyclic.app/products?brand=Tecno`
+      );
+      setData(res.data);
+    }
+  };
+
+  const handleBrandAlls = async () => {
+    const res = await axios.get(
+      `https://unusual-calf-threads.cyclic.app/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`
+    );
+    setAlldata(res.data);
+  };
+
+  const handleprice = async () => {
+    handleBrandAlls();
+
+    handlefiletr();
+  };
+  const handlefiletr = () => {
+    let prices = Alldata.filter((el) => {
+      if (el.price <= maxprice && el.price >= minprice) {
+        return el;
+      }
+    });
+    setData(prices);
+  };
+
+  const handleprecetag = () => {
+    setprecetag(!precetag);
+    handleBrandprecetag();
+  };
+  const handleprecenta = async () => {
+    const res = await axios.get(
+      `https://unusual-calf-threads.cyclic.app/products?brand=Apple&brand=Realme&brand=One Plus&brand=OPPO&brand=Samsung&brand=Tecno&brand=VIVO&brand=Xiaomi`
+    );
+    setprecetagdata(res.data);
+  };
+  const handleBrandprecetag = () => {
+    if (precetag === false) {
+      handleprecenta();
+      presentages();
+    }
+  };
+  const presentages = () => {
+    let prices = precetagdata.filter((el) => {
+      if (el.discount <= 40 && el.discount >= 30) {
+        return el;
+      }
+    });
+    setData(prices);
+    console.log(prices);
+  };
+  //30%
+  const handleprecetag30 = () => {
+    setprecetag30(!precetag30);
+    handleBrandprecetag30();
+  };
+  const handleBrandprecetag30 = () => {
+    if (precetag === false) {
+      handleprecenta();
+      presentages30();
+    }
+  };
+  const presentages30 = () => {
+    let prices = precetagdata.filter((el) => {
+      if (el.discount <= 30 && el.discount >= 20) {
+        return el;
+      }
+    });
+    setData(prices);
+    console.log(prices);
+  };
+
+  //20%
+  const handleprecetag20 = () => {
+    setprecetag20(!precetag20);
+    handleBrandprecetag20();
+  };
+  const handleBrandprecetag20 = () => {
+    if (precetag === false) {
+      handleprecenta();
+      presentages20();
+    }
+  };
+  const presentages20 = () => {
+    let prices = precetagdata.filter((el) => {
+      if (el.discount <= 20 && el.discount >= 10) {
+        return el;
+      }
+    });
+    setData(prices);
+    console.log(prices);
+  };
+
+  //10%
+  const handleprecetag10 = () => {
+    setprecetag10(!precetag10);
+    handleBrandprecetag10();
+  };
+  const handleBrandprecetag10 = () => {
+    if (precetag === false) {
+      handleprecenta();
+      presentages10();
+    }
+  };
+  const presentages10 = () => {
+    let prices = precetagdata.filter((el) => {
+      if (el.discount <= 10 && el.discount >= 0) {
+        return el;
+      }
+    });
+    setData(prices);
+    console.log(prices);
+  };
 
   return (
     <Box className="wrapper">
       <>
-       
         <Flex className="flex_filter-products">
           <Box className="category_wrapper">
             <Accordion defaultIndex={[0, 1, 2]} allowMultiple>
-              
-            <AccordionItem boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;" fontSize='18px' pt='10px' pb='10px' pl='10px' bg='white'>
-                <h1 >
-                FILTERS
-                </h1>
-               
+              <AccordionItem
+                boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+                fontSize="18px"
+                pt="10px"
+                pb="10px"
+                pl="10px"
+                bg="white"
+              >
+                <h1>FILTERS</h1>
               </AccordionItem>
               {/* filter by price */}
-              <AccordionItem boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;" bg='white' mt='20px'>
+              <AccordionItem
+                boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+                bg="white"
+                mt="20px"
+              >
                 <h2>
                   <AccordionButton>
                     <Box
@@ -361,34 +339,70 @@ const presentages10=()=>{
                       textAlign="left"
                       className="filter-title"
                     >
-                     Price
+                      Price
                     </Box>
-                   
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
+                  <MultiRangeSlider
+                    min={Number(minvalues)}
+                    max={Number(maxvalues)}
+                    onChange={({ min, max }) =>
+                      `min = ${setminprice(min)}, max = ${setmaxprice(max)}`
+                    }
+                  />
+                  <Box style={{ display: "flex" }}>
+                    {/* <Input type={"number"} placeholder="min" onChange={(event)=>setminvalues(event.target.value)}/> */}
+                    {/* <Input type={"number"} placeholder="min"/> */}
+                    <input
+                      style={{
+                        border: "1px solid black",
+                        fontSize: "18px",
+                        height: "30px",
+                        width: "70px",
+                        marginLeft: "50px",
+                      }}
+                      type="text"
+                      placeholder="min"
+                      onChange={(event) => setminvalues(event.target.value)}
+                    ></input>
+                    <Text style={{ marginLeft: "10px", marginRight: "10px" }}>
+                      To
+                    </Text>
+                    <input
+                      style={{
+                        border: "1px solid black",
+                        fontSize: "18px",
+                        height: "30px",
+                        width: "70px",
+                      }}
+                      type="text"
+                      placeholder="max"
+                      onChange={(event) => setmaxvalues(event.target.value)}
+                    ></input>
 
-                <MultiRangeSlider
-      min={Number(minvalues)}
-      max={Number(maxvalues)}
-      onChange={({ min, max }) =>(`min = ${setminprice(min)}, max = ${setmaxprice(max)}`)}
-      
-  
-    />
-    <Box style={{display:"flex"}}>
-      {/* <Input type={"number"} placeholder="min" onChange={(event)=>setminvalues(event.target.value)}/> */}
-      {/* <Input type={"number"} placeholder="min"/> */}
-      <input style={{border:'1px solid black',fontSize:'18px',height:'30px',width:'70px',marginLeft:'50px'}} type="text" placeholder="min"  onChange={(event)=>setminvalues(event.target.value)}></input>
-      <Text style={{marginLeft:'10px',marginRight:'10px'}}>To</Text>
-      <input style={{border:'1px solid black',fontSize:'18px',height:'30px',width:'70px'}} type="text" placeholder="max" onChange={(event)=>setmaxvalues(event.target.value)}></input>
-     
-      <Button style={{marginLeft:'10px',marginRight:'20px',backgroundColor:'#003380',color:'white',height:'30px',width:'70px'}} onClick={handleprice}>GO</Button>
-    </Box>
-   
+                    <Button
+                      style={{
+                        marginLeft: "10px",
+                        marginRight: "20px",
+                        backgroundColor: "#003380",
+                        color: "white",
+                        height: "30px",
+                        width: "70px",
+                      }}
+                      onClick={handleprice}
+                    >
+                      GO
+                    </Button>
+                  </Box>
                 </AccordionPanel>
               </AccordionItem>
-              
-              <AccordionItem boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;" bg='white' mt='20px'>
+
+              <AccordionItem
+                boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+                bg="white"
+                mt="20px"
+              >
                 <h2>
                   <AccordionButton>
                     <Box
@@ -399,17 +413,12 @@ const presentages10=()=>{
                     >
                       Brand
                     </Box>
-                   
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                <Box className="filter-checkbox">
-                    <input
-                      type="checkbox"
-                      checked={All}
-                      onChange={handleAll}
-                    />
-                    <label className="label">All  Brand</label>
+                  <Box className="filter-checkbox">
+                    <input type="checkbox" checked={All} onChange={handleAll} />
+                    <label className="label">All Brand</label>
                   </Box>
                   <Box className="filter-checkbox">
                     <input
@@ -424,7 +433,6 @@ const presentages10=()=>{
                       type="checkbox"
                       checked={Samsung}
                       onChange={handleSamsung}
-            
                     />
                     <label className="label"> Samsung</label>
                   </Box>
@@ -438,17 +446,15 @@ const presentages10=()=>{
                   </Box>
                   <Box className="filter-checkbox">
                     <input
-                     type="checkbox"
-                     checked={Realme}
+                      type="checkbox"
+                      checked={Realme}
                       onChange={handleRealme}
-
                     />
                     <label className="label">Realme</label>
                   </Box>
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
-                      
                       checked={OnePlus}
                       onChange={handleOnePlus}
                     />
@@ -456,9 +462,9 @@ const presentages10=()=>{
                   </Box>
                   <Box className="filter-checkbox">
                     <input
-                     type="checkbox"
-                     checked={OPPO}
-                     onChange={handleOPPO}
+                      type="checkbox"
+                      checked={OPPO}
+                      onChange={handleOPPO}
                     />
                     <label className="label">OPPO</label>
                   </Box>
@@ -466,7 +472,7 @@ const presentages10=()=>{
                     <input
                       type="checkbox"
                       checked={VIVO}
-                     onChange={handleVIVO}
+                      onChange={handleVIVO}
                     />
                     <label className="label">VIVO</label>
                   </Box>
@@ -474,17 +480,18 @@ const presentages10=()=>{
                     <input
                       type="checkbox"
                       checked={Tecno}
-                     onChange={handleTecno}
-                      
+                      onChange={handleTecno}
                     />
                     <label className="label">Tecno</label>
                   </Box>
-                 
-                  
                 </AccordionPanel>
               </AccordionItem>
               {/* filter by discount */}
-              <AccordionItem boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;" bg='white' mt='20px'>
+              <AccordionItem
+                boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+                bg="white"
+                mt="20px"
+              >
                 <h2>
                   <AccordionButton>
                     <Box
@@ -495,7 +502,6 @@ const presentages10=()=>{
                     >
                       Discount Percent
                     </Box>
-                  
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
@@ -503,17 +509,16 @@ const presentages10=()=>{
                     <input
                       type="checkbox"
                       checked={precetag}
-                     onChange={handleprecetag}
+                      onChange={handleprecetag}
                     />
                     <label className="label">30% to 40%</label>
                   </Box>
-                  
+
                   <Box className="filter-checkbox">
                     <input
                       type="checkbox"
                       checked={precetag30}
-                     onChange={handleprecetag30}
-                      
+                      onChange={handleprecetag30}
                     />
                     <label className="label">20% to 30%</label>
                   </Box>
@@ -522,8 +527,7 @@ const presentages10=()=>{
                     <input
                       type="checkbox"
                       checked={precetag20}
-                     onChange={handleprecetag20}
-                      
+                      onChange={handleprecetag20}
                     />
                     <label className="label">10% to 20%</label>
                   </Box>
@@ -531,77 +535,185 @@ const presentages10=()=>{
                     <input
                       type="checkbox"
                       checked={precetag10}
-                     onChange={handleprecetag10}
-                      
+                      onChange={handleprecetag10}
                     />
                     <label className="label">upto 10%</label>
                   </Box>
-                 
                 </AccordionPanel>
               </AccordionItem>
-              
             </Accordion>
-            
           </Box>
           <Box className="products_wrapper">
-          <Box background={'#fff'} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;" display={'flex'} justifyContent="space-between">
-      <div>
-      <Text fontSize={'23px'} fontWeight="bold" pt='15px' pl='15px'>APPLE MOBILES</Text>
-      <Text fontSize={'16px'}   pl='15px'>(Showing 1- {data.length} products of 80 products)</Text>
-      </div>
-      <div style={{display:"flex"}}>
-            <div >
-            <Text   fontSize={'15px'}  fontWeight="bold" mt='23px' pl='15px'>Sort By:</Text>
-            </div>
-            <div >
-            <Button ml='20px'  mt='20px' h='20px' pt='15px' pb='15px' fontSize={'13px'} color={'rgb(51, 51, 51)'} bg='rgb(245, 247, 247)' variant='solid'>Relevance</Button>
-            </div>
-            <div >
-            <Button ml='20px'  mt='20px' h='20px' pt='15px' pb='15px' fontSize={'13px'} color={'rgb(51, 51, 51)'} bg='rgb(245, 247, 247)' variant='solid' onClick={lowhigh}>Price(Low-High)</Button>
-            </div>
-            <div >
-            <Button ml='20px' mr='50px'  mt='20px' h='20px' pt='15px' pb='14px' fontSize={'13px'} color={'rgb(51, 51, 51)'} bg='rgb(245, 247, 247)' variant='solid' onClick={highlow} >Price(High-Low)</Button>
-            </div>
-           
-      </div>
-
-   </Box>
-      <Box>
-      <div style={{display:"grid" ,width:'100%',marginTop:'20px', gridTemplateColumns:"repeat(4,1fr)",gap:'8px'}}>
-            {
-                 
-                data.map((product)=>{
-                    return(
-                        <div key={product._id}  onClick={() => navigate(`/products/${product._id}`)} >
-                        
-                       
-                           <div style={{ borderRadius:"5px",height:"auto",paddingTop:"20px",paddingBottom:'30px',boxShadow:" rgba(0, 0, 0, 0.35) 0px 5px 15px",textAlign:"center"}}>
-                           
-                          <img style={{width:"200px",height:"200px",display:'block',margin:'auto'}} src={product.images[0]} alt="product-image" />
-                          <h5 style={{paddingTop:'3px'}}>{product.title}</h5>
-                          <div style={{display:"flex",gap:"10px",justifyContent:"center",marginTop:'10px'}}>    
-                          <h4 style={{color:"blue"}}>₹{product.price}</h4>
-                        <h3 style={{fontWeight:"semibold", color:"gray"}} className="price"><s>Rs.{product.mrp}</s></h3>
-                        <h3 style={{color:'rgb(67, 160, 71)'}} >{product.discount}%{" "}₹({product.mrp-product.price})</h3>
-                         </div>
-                     <div  style={{marginTop:"20px",display:"block",display:'flex'}}>
-                     <div   style={{border:'0.5px solid #C4C4C4',width:'49%',marginLeft:'1px'}}>
-                        <input style={{width:'25px',height:'15px',marginTop:'5px'}} type={"checkbox"}/>
-                        Compare</div>
-                    <div style={{border:'0.5px solid #C4C4C4',width:'49%'}}>
-                        Wishlist</div>
-                     </div>
-                           </div>
-                           
-                           
-
+            <Box
+              background={"#fff"}
+              boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+              display={"flex"}
+              justifyContent="space-between"
+            >
+              <div>
+                <Text fontSize={"23px"} fontWeight="bold" pt="15px" pl="15px">
+                  {textdata} Mobiles
+                </Text>
+                <Text fontSize={"16px"} pl="15px">
+                  (Showing 1- {data.length} products of 80 products)
+                </Text>
+              </div>
+              <div style={{ display: "flex" }}>
+                <div>
+                  <Text fontSize={"15px"} fontWeight="bold" mt="23px" pl="15px">
+                    Sort By:
+                  </Text>
+                </div>
+                <div>
+                  <Button
+                    ml="20px"
+                    mt="20px"
+                    h="20px"
+                    pt="15px"
+                    pb="15px"
+                    fontSize={"13px"}
+                    color={"rgb(51, 51, 51)"}
+                    bg="rgb(245, 247, 247)"
+                    variant="solid"
+                  >
+                    Relevance
+                  </Button>
+                </div>
+                <div>
+                  <Button
+                    ml="20px"
+                    mt="20px"
+                    h="20px"
+                    pt="15px"
+                    pb="15px"
+                    fontSize={"13px"}
+                    color={"rgb(51, 51, 51)"}
+                    bg="rgb(245, 247, 247)"
+                    variant="solid"
+                    onClick={lowhigh}
+                  >
+                    Price(Low-High)
+                  </Button>
+                </div>
+                <div>
+                  <Button
+                    ml="20px"
+                    mr="50px"
+                    mt="20px"
+                    h="20px"
+                    pt="15px"
+                    pb="14px"
+                    fontSize={"13px"}
+                    color={"rgb(51, 51, 51)"}
+                    bg="rgb(245, 247, 247)"
+                    variant="solid"
+                    onClick={highlow}
+                  >
+                    Price(High-Low)
+                  </Button>
+                </div>
+              </div>
+            </Box>
+            {data.length ? (
+              <Box>
+                <div
+                  style={{
+                    display: "grid",
+                    width: "100%",
+                    marginTop: "20px",
+                    gridTemplateColumns: "repeat(4,1fr)",
+                    gap: "8px",
+                  }}
+                >
+                  {data.map((product) => {
+                    return (
+                      <div
+                        key={product._id}
+                        onClick={() => navigate(`/products/${product._id}`)}
+                      >
+                        <div
+                          style={{
+                            borderRadius: "5px",
+                            height: "auto",
+                            paddingTop: "20px",
+                            paddingBottom: "30px",
+                            boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                            textAlign: "center",
+                          }}
+                        >
+                          <img
+                            style={{
+                              width: "200px",
+                              height: "200px",
+                              display: "block",
+                              margin: "auto",
+                            }}
+                            src={product.images[0]}
+                            alt="product-image"
+                          />
+                          <h5 style={{ paddingTop: "3px" }}>{product.title}</h5>
+                          <div
+                            style={{
+                              display: "flex",
+                              gap: "10px",
+                              justifyContent: "center",
+                              marginTop: "10px",
+                            }}
+                          >
+                            <h4 style={{ color: "blue" }}>₹{product.price}</h4>
+                            <h3
+                              style={{ fontWeight: "semibold", color: "gray" }}
+                              className="price"
+                            >
+                              <s>Rs.{product.mrp}</s>
+                            </h3>
+                            <h3 style={{ color: "rgb(67, 160, 71)" }}>
+                              {product.discount}% ₹(
+                              {product.mrp - product.price})
+                            </h3>
+                          </div>
+                          <div
+                            style={{
+                              marginTop: "20px",
+                              display: "block",
+                              display: "flex",
+                            }}
+                          >
+                            <div
+                              style={{
+                                border: "0.5px solid #C4C4C4",
+                                width: "49%",
+                                marginLeft: "1px",
+                              }}
+                            >
+                              <input
+                                style={{
+                                  width: "25px",
+                                  height: "15px",
+                                  marginTop: "5px",
+                                }}
+                                type={"checkbox"}
+                              />
+                              Compare
+                            </div>
+                            <div
+                              style={{
+                                border: "0.5px solid #C4C4C4",
+                                width: "49%",
+                              }}
+                            >
+                              Wishlist
+                            </div>
+                          </div>
                         </div>
-                    )
-                })
-            }
-        </div>
-
-      </Box>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Box>
+            ) : (
+              <Loading />
+            )}
           </Box>
         </Flex>{" "}
       </>

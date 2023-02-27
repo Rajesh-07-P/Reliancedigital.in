@@ -17,8 +17,12 @@ const Register = () => {
 
   const handleRegister = async () => {
     console.log(details);
-    let res = await axios.post("http://localhost:4500/users/register", details);
-    localStorage.setItem("token", res.data.tokenID);
+    let res = await axios.post(
+      "https://unusual-calf-threads.cyclic.app/users/register",
+      details
+    );
+    console.log(res);
+    // localStorage.setItem("token", res.data.tokenID);
   };
   
   // useEffect(() => {
@@ -28,38 +32,52 @@ const Register = () => {
   //   }, 5000);
   // }, []);
   return (
-    <div>
-      <img
-        src={process.env.PUBLIC_URL + "/assests/logo.png"}
-        alt="Retail City Logo"
-        className={style.logo}
-      />
+    <div className={style.regcont}>
       <h1 className={style.head}>User Registration</h1>
       <div className={style.form}>
         <div>
           <label htmlFor="name">Name*</label>
           <br />
-          <input type="text" placeholder="Enter Your Name" required name="name"/>
+          <input
+            type="text"
+            placeholder="Enter Your Name"
+            required
+            name="name"
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label htmlFor="mobile">Mobile No.*</label>
           <br />
-          <input type="number" maxLength={10} placeholder="Enter Your Number" name="mobile"/>
+          <input
+            type="number"
+            maxLength={10}
+            placeholder="Enter Your Number"
+            name="mobile"
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label htmlFor="email">E-Mail*</label>
           <br />
-          <input type="email" placeholder="Enter Your Email Address" required name="email"/>
+          <input
+            type="email"
+            placeholder="Enter Your Email Address"
+            required
+            name="email"
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label htmlFor="password">Create Password*</label>
           <br />
           <input
-            type="number"
+            type="password"
             placeholder="Create Password"
             maxLength={10}
             required
             name="password"
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -71,6 +89,7 @@ const Register = () => {
             required
             maxLength={8}
             name="gender"
+            onChange={handleChange}
           />
         </div>
         <button onClick={handleRegister}>Register</button>

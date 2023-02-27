@@ -51,7 +51,7 @@ const AddressUser = () => {
       address.state &&
       address.mobile
     ) {
-      fetch("http://localhost:4500/address/create", {
+      fetch("https://unusual-calf-threads.cyclic.app/address/create", {
         method: "POST",
         body: JSON.stringify(address),
         headers: {
